@@ -1,8 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <ItemGroup>
-        <Compile Update="Form1.cs">
-            <SubType>Form</SubType>
-        </Compile>
-    </ItemGroup>
+  <ItemGroup>
+    <Compile Update="GUI\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\FormUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="appsettings.json">
+      <SubType>Form</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>
