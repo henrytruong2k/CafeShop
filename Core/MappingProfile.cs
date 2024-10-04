@@ -16,5 +16,10 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src["FullName"].ToString()));
 
         //TODO: add more profiles
+        CreateMap<DataRow, FoodDTO>()
+           .ForMember(dest => dest.FoodID, opt => opt.MapFrom(src => Convert.ToInt32(src["FoodID"])))
+           .ForMember(dest => dest.FoodName, opt => opt.MapFrom(src => src["FoodName"].ToString()))
+           .ForMember(dest => dest.IdCategory, opt => opt.MapFrom(src => Convert.ToInt32(src["IdCategory"])))
+           .ForMember(dest => dest.Price, opt => opt.MapFrom(src => Convert.ToDouble(src["Price"])));
     }
 }

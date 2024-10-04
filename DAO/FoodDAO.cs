@@ -1,43 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 
-namespace CafeShop.DAO
+namespace CafeShop.DAO;
+
+public class FoodDAO
 {
-    //internal class FoodDAO
-    //{
-    //}
-    public class FoodDAO
+    private static FoodDAO _instance;
+    public static FoodDAO Instance
     {
-        private static FoodDAO _instance;
-
-        public static FoodDAO Instance 
+        get
         {
-               get { if (_instance == null) _instance = new FoodDAO(); return FoodDAO._instance; }
-                private set { FoodDAO._instance = value; }
+            _instance ??= new FoodDAO();
+            return _instance;
         }
-
-        public List<FoodDTO> GetListFood()
-        {
-            List<FoodDTO> list = new List<FoodDTO>();
-
-            string query = "Select * from Food";
-
-            DataTable date = DataProvider.Instance.ExecuteSPDataTable(query);
-
-            foreach (DataRow item  in   data.Rows)
-            {
-                FoodDTO food = new FoodDTO(item);
-                list.Add(food);
-            }
-
-
-            return list;
-        }
+        private set { _instance = value; }
     }
+
+    public List<FoodDTO> GetListFood()
+    {
+        DataTable dataTable = DataProvider.Instance.ExecuteSPDataTable("SP_GetListFood");
+        if (dataTable == null || dataTable.Rows.Count == 0) return null;
+        List<FoodDTO> foods = AutoMapperConfig.Instance.Map<List<FoodDTO>>(dataTable);
+        //foreach(DataRow item in dataTable.Rows)
+        //{
+
+        //}
+        return foods;
+    }
+
 
 
 }

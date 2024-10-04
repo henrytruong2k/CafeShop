@@ -1,20 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿namespace CafeShop.GUI;
 
-namespace CafeShop.GUI
+public partial class FormMenu : Form
 {
-    public partial class FormMenu : Form
+    public FormMenu()
     {
-        public FormMenu()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+    }
+
+    void LoadListFood()
+    {
+        dgv_FoodMenu.DataSource = FoodDAO.Instance.GetListFood();
+    }
+
+    private void btn_XemMenu_Click(object sender, EventArgs e)
+    {
+        LoadListFood();
+    }
+
+    private void FormMenu_Load(object sender, EventArgs e)
+    {
+        dgv_FoodMenu.DataSource = FoodBUS.Instance.GetListFood();
     }
 }

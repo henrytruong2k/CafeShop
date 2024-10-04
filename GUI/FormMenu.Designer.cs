@@ -42,8 +42,9 @@
             txt_TimMenu = new TextBox();
             btn_TimMenu = new Button();
             panel3 = new Panel();
-            dataGridView1 = new DataGridView();
+            dgv_FoodMenu = new DataGridView();
             panel2 = new Panel();
+            btn_XemMenu = new Button();
             btn_XoaMenu = new Button();
             btn_SuaMenu = new Button();
             btn_ThemMenu = new Button();
@@ -52,7 +53,7 @@
             ((System.ComponentModel.ISupportInitialize)nm_FoodPrice).BeginInit();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_FoodMenu).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -179,34 +180,45 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(dataGridView1);
+            panel3.Controls.Add(dgv_FoodMenu);
             panel3.Location = new Point(3, 109);
             panel3.Name = "panel3";
             panel3.Size = new Size(851, 567);
             panel3.TabIndex = 1;
             // 
-            // dataGridView1
+            // dgv_FoodMenu
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(3, 3);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(845, 561);
-            dataGridView1.TabIndex = 0;
+            dgv_FoodMenu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_FoodMenu.Location = new Point(3, 3);
+            dgv_FoodMenu.Name = "dgv_FoodMenu";
+            dgv_FoodMenu.RowHeadersWidth = 51;
+            dgv_FoodMenu.Size = new Size(845, 561);
+            dgv_FoodMenu.TabIndex = 0;
             // 
             // panel2
             // 
+            panel2.Controls.Add(btn_XemMenu);
             panel2.Controls.Add(btn_XoaMenu);
             panel2.Controls.Add(btn_SuaMenu);
             panel2.Controls.Add(btn_ThemMenu);
-            panel2.Location = new Point(39, 19);
+            panel2.Location = new Point(42, 19);
             panel2.Name = "panel2";
-            panel2.Size = new Size(770, 71);
+            panel2.Size = new Size(764, 71);
             panel2.TabIndex = 0;
+            // 
+            // btn_XemMenu
+            // 
+            btn_XemMenu.Location = new Point(613, 1);
+            btn_XemMenu.Name = "btn_XemMenu";
+            btn_XemMenu.Size = new Size(150, 70);
+            btn_XemMenu.TabIndex = 3;
+            btn_XemMenu.Text = "Xem";
+            btn_XemMenu.UseVisualStyleBackColor = true;
+            btn_XemMenu.Click += btn_XemMenu_Click;
             // 
             // btn_XoaMenu
             // 
-            btn_XoaMenu.Location = new Point(617, 0);
+            btn_XoaMenu.Location = new Point(403, 1);
             btn_XoaMenu.Name = "btn_XoaMenu";
             btn_XoaMenu.Size = new Size(150, 70);
             btn_XoaMenu.TabIndex = 2;
@@ -215,7 +227,7 @@
             // 
             // btn_SuaMenu
             // 
-            btn_SuaMenu.Location = new Point(291, 0);
+            btn_SuaMenu.Location = new Point(201, 1);
             btn_SuaMenu.Name = "btn_SuaMenu";
             btn_SuaMenu.Size = new Size(150, 70);
             btn_SuaMenu.TabIndex = 1;
@@ -239,6 +251,7 @@
             Controls.Add(panel1);
             Name = "FormMenu";
             Text = "Menu";
+            Load += FormMenu_Load;
             panel1.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
@@ -246,7 +259,7 @@
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_FoodMenu).EndInit();
             panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -256,7 +269,7 @@
         private Panel panel1;
         private Panel panel3;
         private Panel panel2;
-        private DataGridView dataGridView1;
+        private DataGridView dgv_FoodMenu;
         private Button btn_ThemMenu;
         private Panel panel5;
         private Panel panel4;
@@ -272,5 +285,6 @@
         private TextBox txt_FoodID;
         private Label label4;
         private Label label3;
+        private Button btn_XemMenu;
     }
 }
