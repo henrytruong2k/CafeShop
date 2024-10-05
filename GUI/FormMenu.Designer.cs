@@ -44,7 +44,6 @@
             panel3 = new Panel();
             dgv_FoodMenu = new DataGridView();
             panel2 = new Panel();
-            btn_XemMenu = new Button();
             btn_XoaMenu = new Button();
             btn_SuaMenu = new Button();
             btn_ThemMenu = new Button();
@@ -63,9 +62,10 @@
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
-            panel1.Location = new Point(12, 12);
+            panel1.Location = new Point(10, 9);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1258, 679);
+            panel1.Size = new Size(1028, 509);
             panel1.TabIndex = 0;
             // 
             // panel5
@@ -78,48 +78,53 @@
             panel5.Controls.Add(label3);
             panel5.Controls.Add(label2);
             panel5.Controls.Add(label1);
-            panel5.Location = new Point(867, 112);
+            panel5.Location = new Point(677, 82);
+            panel5.Margin = new Padding(3, 2, 3, 2);
             panel5.Name = "panel5";
-            panel5.Size = new Size(388, 561);
+            panel5.Size = new Size(340, 421);
             panel5.TabIndex = 3;
             // 
             // nm_FoodPrice
             // 
-            nm_FoodPrice.Location = new Point(175, 237);
+            nm_FoodPrice.Location = new Point(153, 172);
+            nm_FoodPrice.Margin = new Padding(3, 2, 3, 2);
             nm_FoodPrice.Name = "nm_FoodPrice";
-            nm_FoodPrice.Size = new Size(187, 27);
+            nm_FoodPrice.Size = new Size(164, 23);
             nm_FoodPrice.TabIndex = 7;
             // 
             // cb_Category
             // 
             cb_Category.FormattingEnabled = true;
-            cb_Category.Location = new Point(175, 170);
+            cb_Category.Location = new Point(153, 122);
+            cb_Category.Margin = new Padding(3, 2, 3, 2);
             cb_Category.Name = "cb_Category";
-            cb_Category.Size = new Size(187, 28);
+            cb_Category.Size = new Size(164, 23);
             cb_Category.TabIndex = 6;
             // 
             // txt_FoodName
             // 
-            txt_FoodName.Location = new Point(175, 97);
+            txt_FoodName.Location = new Point(156, 70);
+            txt_FoodName.Margin = new Padding(3, 2, 3, 2);
             txt_FoodName.Name = "txt_FoodName";
-            txt_FoodName.Size = new Size(187, 27);
+            txt_FoodName.Size = new Size(164, 23);
             txt_FoodName.TabIndex = 5;
             // 
             // txt_FoodID
             // 
-            txt_FoodID.Location = new Point(175, 34);
+            txt_FoodID.Location = new Point(156, 20);
+            txt_FoodID.Margin = new Padding(3, 2, 3, 2);
             txt_FoodID.Name = "txt_FoodID";
             txt_FoodID.ReadOnly = true;
-            txt_FoodID.Size = new Size(187, 27);
+            txt_FoodID.Size = new Size(164, 23);
             txt_FoodID.TabIndex = 4;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            label4.Location = new Point(19, 232);
+            label4.Location = new Point(17, 174);
             label4.Name = "label4";
-            label4.Size = new Size(50, 28);
+            label4.Size = new Size(40, 21);
             label4.TabIndex = 3;
             label4.Text = "Giá :";
             // 
@@ -127,9 +132,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(19, 166);
+            label3.Location = new Point(17, 124);
             label3.Name = "label3";
-            label3.Size = new Size(109, 28);
+            label3.Size = new Size(88, 21);
             label3.TabIndex = 2;
             label3.Text = "Danh mục :";
             // 
@@ -137,9 +142,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(19, 96);
+            label2.Location = new Point(17, 72);
             label2.Name = "label2";
-            label2.Size = new Size(95, 28);
+            label2.Size = new Size(76, 21);
             label2.TabIndex = 1;
             label2.Text = "Tên món :";
             // 
@@ -147,9 +152,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            label1.Location = new Point(19, 30);
+            label1.Location = new Point(17, 22);
             label1.Name = "label1";
-            label1.Size = new Size(40, 28);
+            label1.Size = new Size(32, 21);
             label1.TabIndex = 0;
             label1.Text = "ID :";
             // 
@@ -157,79 +162,78 @@
             // 
             panel4.Controls.Add(txt_TimMenu);
             panel4.Controls.Add(btn_TimMenu);
-            panel4.Location = new Point(867, 19);
+            panel4.Location = new Point(677, 13);
+            panel4.Margin = new Padding(3, 2, 3, 2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(388, 70);
+            panel4.Size = new Size(340, 52);
             panel4.TabIndex = 2;
             // 
             // txt_TimMenu
             // 
-            txt_TimMenu.Location = new Point(29, 22);
+            txt_TimMenu.Font = new Font("Segoe UI", 16F);
+            txt_TimMenu.Location = new Point(17, 4);
+            txt_TimMenu.Margin = new Padding(3, 2, 3, 2);
             txt_TimMenu.Name = "txt_TimMenu";
-            txt_TimMenu.Size = new Size(219, 27);
+            txt_TimMenu.Size = new Size(192, 36);
             txt_TimMenu.TabIndex = 1;
             // 
             // btn_TimMenu
             // 
-            btn_TimMenu.Location = new Point(266, 0);
+            btn_TimMenu.Location = new Point(215, 3);
+            btn_TimMenu.Margin = new Padding(3, 2, 3, 2);
             btn_TimMenu.Name = "btn_TimMenu";
-            btn_TimMenu.Size = new Size(120, 70);
+            btn_TimMenu.Size = new Size(105, 37);
             btn_TimMenu.TabIndex = 0;
             btn_TimMenu.Text = "Tìm";
             btn_TimMenu.UseVisualStyleBackColor = true;
+            btn_TimMenu.Click += btn_TimMenu_Click;
             // 
             // panel3
             // 
             panel3.Controls.Add(dgv_FoodMenu);
-            panel3.Location = new Point(3, 109);
+            panel3.Location = new Point(3, 82);
+            panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(851, 567);
+            panel3.Size = new Size(666, 425);
             panel3.TabIndex = 1;
             // 
             // dgv_FoodMenu
             // 
             dgv_FoodMenu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_FoodMenu.Location = new Point(3, 3);
+            dgv_FoodMenu.Location = new Point(3, 2);
+            dgv_FoodMenu.Margin = new Padding(3, 2, 3, 2);
             dgv_FoodMenu.Name = "dgv_FoodMenu";
             dgv_FoodMenu.RowHeadersWidth = 51;
-            dgv_FoodMenu.Size = new Size(845, 561);
+            dgv_FoodMenu.Size = new Size(660, 421);
             dgv_FoodMenu.TabIndex = 0;
             // 
             // panel2
             // 
-            panel2.Controls.Add(btn_XemMenu);
             panel2.Controls.Add(btn_XoaMenu);
             panel2.Controls.Add(btn_SuaMenu);
             panel2.Controls.Add(btn_ThemMenu);
-            panel2.Location = new Point(42, 19);
+            panel2.Location = new Point(6, 14);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(764, 71);
+            panel2.Size = new Size(405, 53);
             panel2.TabIndex = 0;
-            // 
-            // btn_XemMenu
-            // 
-            btn_XemMenu.Location = new Point(613, 1);
-            btn_XemMenu.Name = "btn_XemMenu";
-            btn_XemMenu.Size = new Size(150, 70);
-            btn_XemMenu.TabIndex = 3;
-            btn_XemMenu.Text = "Xem";
-            btn_XemMenu.UseVisualStyleBackColor = true;
-            btn_XemMenu.Click += btn_XemMenu_Click;
             // 
             // btn_XoaMenu
             // 
-            btn_XoaMenu.Location = new Point(403, 1);
+            btn_XoaMenu.Location = new Point(274, 0);
+            btn_XoaMenu.Margin = new Padding(3, 2, 3, 2);
             btn_XoaMenu.Name = "btn_XoaMenu";
-            btn_XoaMenu.Size = new Size(150, 70);
+            btn_XoaMenu.Size = new Size(131, 52);
             btn_XoaMenu.TabIndex = 2;
             btn_XoaMenu.Text = "Xóa";
             btn_XoaMenu.UseVisualStyleBackColor = true;
             // 
             // btn_SuaMenu
             // 
-            btn_SuaMenu.Location = new Point(201, 1);
+            btn_SuaMenu.Location = new Point(137, -1);
+            btn_SuaMenu.Margin = new Padding(3, 2, 3, 2);
             btn_SuaMenu.Name = "btn_SuaMenu";
-            btn_SuaMenu.Size = new Size(150, 70);
+            btn_SuaMenu.Size = new Size(131, 52);
             btn_SuaMenu.TabIndex = 1;
             btn_SuaMenu.Text = "Sửa ";
             btn_SuaMenu.UseVisualStyleBackColor = true;
@@ -237,18 +241,20 @@
             // btn_ThemMenu
             // 
             btn_ThemMenu.Location = new Point(0, 0);
+            btn_ThemMenu.Margin = new Padding(3, 2, 3, 2);
             btn_ThemMenu.Name = "btn_ThemMenu";
-            btn_ThemMenu.Size = new Size(150, 70);
+            btn_ThemMenu.Size = new Size(131, 52);
             btn_ThemMenu.TabIndex = 0;
             btn_ThemMenu.Text = "Thêm";
             btn_ThemMenu.UseVisualStyleBackColor = true;
             // 
             // FormMenu
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1282, 703);
+            ClientSize = new Size(1048, 527);
             Controls.Add(panel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormMenu";
             Text = "Menu";
             Load += FormMenu_Load;
@@ -285,6 +291,5 @@
         private TextBox txt_FoodID;
         private Label label4;
         private Label label3;
-        private Button btn_XemMenu;
     }
 }

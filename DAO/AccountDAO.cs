@@ -1,5 +1,4 @@
 ﻿using CafeShop.Utils;
-using System.Data;
 
 namespace CafeShop.DAO;
 
@@ -19,13 +18,8 @@ public class AccountDAO
     public AccountDTO Login(string username, string password)
     {
         DataProvider.Instance.AddInputParameter("UserName", username);
-        DataTable dtTable = DataProvider.Instance.ExecuteSPDataTable("SP_Login");
-
-        if (dtTable == null || dtTable.Rows.Count == 0) return null;
-
-        DataRow row = dtTable.Rows[0];
-        AccountDTO account = AutoMapperConfig.Instance.Map<AccountDTO>(row);
-        if (!PasswordUtil.VerifyPassword(username, password, account.Password)) return null;
+        AccountDTO account = DataProvider.Instance.ExecuteProcedure<AccountDTO>("SP_Login");
+        if (!PasswordUtil.VerifyPassword(username, password, account?.Password)) return null;
         return account;
     }
 

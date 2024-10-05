@@ -11,7 +11,7 @@ public partial class FormUser : Form
 
     private void FormUser_Load(object sender, EventArgs e)
     {
-        dgv_user.DataSource = DataProvider.Instance.ExecuteSPDataTable("SP_UserSearch");
+        dgv_user.DataSource = DataProvider.Instance.ExecuteSQLGetList<AccountDTO>("SELECT * FROM Users");
         lbl_fullname.Text = accountDTO.FullName;
     }
 }

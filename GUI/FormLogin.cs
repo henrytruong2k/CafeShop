@@ -1,4 +1,6 @@
-﻿namespace CafeShop;
+﻿using CafeShop.GUI;
+
+namespace CafeShop;
 
 public partial class FormLogin : Form
 {
@@ -17,8 +19,8 @@ public partial class FormLogin : Form
         }
 
         this.Hide();
-        FormUser form = new(accountDTO);
-        form.ShowDialog();
+        FormMain formMain = new();
+        formMain.ShowDialog();
         this.Show();
     }
 

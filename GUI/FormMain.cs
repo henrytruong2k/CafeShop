@@ -16,5 +16,16 @@ namespace CafeShop.GUI
         {
             InitializeComponent();
         }
+
+        private void btn_booking_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_menu_Click(object sender, EventArgs e)
+        {
+            FormMenu formMenu = new();
+            formMenu.ShowDialog();
+        }
     }
 }
