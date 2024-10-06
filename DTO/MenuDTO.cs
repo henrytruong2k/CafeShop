@@ -6,5 +6,6 @@ public class MenuDTO
     public string MenuName { get; set; }
     public string Description { get; set; }
     public long Price { get; set; }
+    public int CategoryID { get; set; }
     public string CategoryName { get; set; }
 }

@@ -19,4 +19,12 @@ public class MenuDAO
         List<MenuDTO> menus = DataProvider.Instance.ExecuteProcedureGetList<MenuDTO>("SP_MenuSearch");
         return menus;
     }
+
+    public List<CategoryDTO> GetCategories() => DataProvider.Instance.ExecuteSQLGetList<CategoryDTO>("SELECT * FROM Categories");
+
+    public bool InsertMenu(MenuDTO menu)
+    {
+        string query = $"INSERT INTO Menus(MenuName, Price) VALUES (N'{menu.MenuName}', {menu.Price})";
+        return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+    }
 }

@@ -175,4 +175,6 @@ public class DataProvider
         DataTable dt = ExecuteSQLDataTable(procedureName);
         return dt.Rows.Count > 0 ? Extract<T>(dt.Rows[0]) : default;
     }
+
+    public int ExecuteNonQuery(string queryString) => Execute(command => command.ExecuteNonQuery(), CommandType.Text, queryString);
 }
