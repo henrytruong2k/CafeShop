@@ -31,4 +31,17 @@ public partial class FormLogin : Form
         txt_username.Text = "admin";
         txt_password.Text = "admin";
     }
+
+    private void btn_Show_Click(object sender, EventArgs e)
+    {
+        if(btn_Show.Text =="Show")
+        {
+            txt_password.PasswordChar= '\0';
+            btn_Show.Text = "Hide";
+        }else
+        {
+            txt_password.PasswordChar = '*';
+            btn_Show.Text = "Show";
+        }
+    }
 }
