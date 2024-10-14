@@ -19,7 +19,8 @@ namespace CafeShop.GUI
 
         private void btn_booking_Click(object sender, EventArgs e)
         {
-
+            FormBooking formBooking = new();
+            formBooking.ShowDialog();
         }
 
         private void btn_menu_Click(object sender, EventArgs e)
