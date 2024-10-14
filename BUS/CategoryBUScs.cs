@@ -18,4 +18,8 @@ public class CategoryBUS
     public List<CategoryDTO> GetCategory(string cateName) => CategoryDAO.Instance.GetCategory(cateName);
 
     public bool InsertCategory(CategoryDTO cateDTO) => CategoryDAO.Instance.InsertCategory(cateDTO);
+
+    public bool UpdateCategory(CategoryDTO cateDTO) => CategoryDAO.Instance.UpdateCategory(cateDTO);
+
+    public bool DeleteCategory(int categoryID) => CategoryDAO.Instance.DeleteCategory(categoryID);
 }

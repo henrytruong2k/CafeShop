@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CafeShop.DAO;
@@ -43,6 +44,41 @@ public class CategoryDAO
             return false;
         }
 
-
     }
+    public bool UpdateCategory(CategoryDTO cate)
+    {
+        try
+        {
+            DataProvider.Instance.AddInputParameter("CategoryID", cate.CategoryID);
+            DataProvider.Instance.AddInputParameter("CategoryName", cate.CategoryName);
+            DataProvider.Instance.AddInputParameter("Note", cate.Note);
+            DataProvider.Instance.AddInputParameter("UserID", Core.AppContext.UserID);
+            DataProvider.Instance.AddInputParameter("Paramerters", JsonSerializer.Serialize(cate, _options));
+            DataProvider.Instance.ExecuteProcedure<EmptyData>("SP_UpdateCategory");
+            return true;
+        }
+        catch
+        {
+
+            return false;
+        }
+    }
+
+    public bool DeleteCategory(int categoryID)
+    {
+        try
+        {
+            DataProvider.Instance.AddInputParameter("CategoryID", categoryID);
+            DataProvider.Instance.AddInputParameter("UserID", Core.AppContext.UserID);
+            DataProvider.Instance.AddInputParameter("Paramerters", JsonSerializer.Serialize(new { CategoryID = categoryID }, _options));
+            DataProvider.Instance.ExecuteProcedure<EmptyData>("SP_DeleteCategory");
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+
 }

@@ -61,7 +61,7 @@
             panel1.Controls.Add(panel3);
             panel1.Location = new Point(12, 27);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1175, 648);
+            panel1.Size = new Size(1174, 664);
             panel1.TabIndex = 1;
             // 
             // panel5
@@ -80,7 +80,7 @@
             panel5.Controls.Add(label1);
             panel5.Location = new Point(774, 109);
             panel5.Name = "panel5";
-            panel5.Size = new Size(389, 561);
+            panel5.Size = new Size(389, 536);
             panel5.TabIndex = 3;
             // 
             // txt_Note
@@ -129,6 +129,7 @@
             btn_SuaCategory.TabIndex = 1;
             btn_SuaCategory.Text = "Sửa ";
             btn_SuaCategory.UseVisualStyleBackColor = true;
+            btn_SuaCategory.Click += btn_SuaCategory_Click;
             // 
             // btn_ThemCategory
             // 
@@ -187,7 +188,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            label1.Location = new Point(19, 29);
+            label1.Location = new Point(19, 26);
             label1.Name = "label1";
             label1.Size = new Size(81, 28);
             label1.TabIndex = 0;
@@ -241,6 +242,7 @@
             dgv_Category.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_Category.Size = new Size(762, 536);
             dgv_Category.TabIndex = 0;
+            dgv_Category.CellClick += dgv_Category_CellClick;
             // 
             // FormCategory
             // 
