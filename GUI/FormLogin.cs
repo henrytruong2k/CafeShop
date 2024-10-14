@@ -34,11 +34,12 @@ public partial class FormLogin : Form
 
     private void btn_Show_Click(object sender, EventArgs e)
     {
-        if(btn_Show.Text =="Show")
+        if (btn_Show.Text == "Show")
         {
-            txt_password.PasswordChar= '\0';
+            txt_password.PasswordChar = '\0';
             btn_Show.Text = "Hide";
-        }else
+        }
+        else
         {
             txt_password.PasswordChar = '*';
             btn_Show.Text = "Show";
