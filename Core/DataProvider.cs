@@ -109,7 +109,7 @@ public class DataProvider
         }
         return ts;
     }
-
+    
     public T Extract<T>(DataRow dr) where T : class
     {
         Type type = typeof(T);
@@ -174,4 +174,5 @@ public class DataProvider
     }
 
     public int ExecuteNonQuery(string queryString) => Execute(command => command.ExecuteNonQuery(), CommandType.Text, queryString);
+    public int ExecuteSPNonQuery(string queryString) => Execute(command => command.ExecuteNonQuery(), CommandType.StoredProcedure, queryString);
 }
