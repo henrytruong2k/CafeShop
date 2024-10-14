@@ -1,4 +1,5 @@
 ﻿using CafeShop.GUI;
+using AppContext = CafeShop.Core.AppContext;
 
 namespace CafeShop;
 
@@ -17,7 +18,7 @@ public partial class FormLogin : Form
             MessageBox.Show("Sai tài khoản hoặc mật khẩu");
             return;
         }
-
+        AppContext.UserID = accountDTO.UserID;
         this.Hide();
         FormMain formMain = new();
         formMain.ShowDialog();

@@ -128,6 +128,7 @@
             btn_XoaMenu.TabIndex = 2;
             btn_XoaMenu.Text = "Xóa";
             btn_XoaMenu.UseVisualStyleBackColor = true;
+            btn_XoaMenu.Click += btn_XoaMenu_Click;
             // 
             // txt_Price
             // 
@@ -147,6 +148,7 @@
             btn_SuaMenu.TabIndex = 1;
             btn_SuaMenu.Text = "Sửa ";
             btn_SuaMenu.UseVisualStyleBackColor = true;
+            btn_SuaMenu.Click += btn_SuaMenu_Click;
             // 
             // cb_Category
             // 

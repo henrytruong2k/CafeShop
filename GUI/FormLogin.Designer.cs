@@ -100,10 +100,10 @@
             // 
             // btn_Show
             // 
-            btn_Show.Location = new Point(389, 57);
+            btn_Show.Location = new Point(383, 57);
             btn_Show.Margin = new Padding(3, 2, 3, 2);
             btn_Show.Name = "btn_Show";
-            btn_Show.Size = new Size(74, 29);
+            btn_Show.Size = new Size(80, 29);
             btn_Show.TabIndex = 5;
             btn_Show.Text = "show";
             btn_Show.UseVisualStyleBackColor = true;

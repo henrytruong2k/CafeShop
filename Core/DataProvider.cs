@@ -26,9 +26,7 @@ public class DataProvider
         private set => _instance = value;
     }
 
-    private DataProvider()
-    {
-    }
+    private DataProvider() { }
 
     private static readonly IList<DbParameter> Parameters = [];
     public void AddInputParameter(string name, object value)
