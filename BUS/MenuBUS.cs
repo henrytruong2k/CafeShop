@@ -15,6 +15,8 @@ public class MenuBUS
     
     public List<MenuDTO> GetMenus(string menuName = null) => MenuDAO.Instance.GetMenus(menuName);
 
+    public List<MenuDTO> GetMenusByCategoryID(int categoryID) => MenuDAO.Instance.GetMenuByCategoryID(categoryID);
+
     public List<CategoryDTO> GetCategories() => MenuDAO.Instance.GetCategories();
     public bool InsertMenu(MenuDTO menuDTO) => MenuDAO.Instance.InsertMenu(menuDTO);
     public bool UpdateMenu(MenuDTO menuDTO) => MenuDAO.Instance.UpdateMenu(menuDTO);

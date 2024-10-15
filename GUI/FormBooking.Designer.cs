@@ -286,6 +286,7 @@
             cbo_Category.Name = "cbo_Category";
             cbo_Category.Size = new Size(199, 23);
             cbo_Category.TabIndex = 0;
+            cbo_Category.SelectedIndexChanged += cbo_Category_SelectedIndexChanged;
             // 
             // cbo_Menu
             // 

@@ -24,6 +24,12 @@ public class MenuDAO
         return menus;
     }
 
+    public List<MenuDTO> GetMenuByCategoryID(int categoryID)
+    {
+        DataProvider.Instance.AddInputParameter("CategoryID", categoryID);
+        return DataProvider.Instance.ExecuteProcedureGetList<MenuDTO>("SP_GetMenuByCategoryID");
+    }
+
     public List<CategoryDTO> GetCategories() => DataProvider.Instance.ExecuteSQLGetList<CategoryDTO>("SELECT * FROM Categories");
 
     public bool InsertMenu(MenuDTO menu)

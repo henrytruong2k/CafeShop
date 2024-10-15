@@ -13,5 +13,5 @@ public class TableDAO
         private set { _instance = value; }
     }
 
-    public List<TableDTO> LoadTables() => DataProvider.Instance.ExecuteSQLGetList<TableDTO>("SELECT * FROM V_LoadTables");
+    public List<TableDTO> LoadTables() => DataProvider.Instance.ExecuteSQLGetList<TableDTO>("SELECT * FROM TableFood");
 }

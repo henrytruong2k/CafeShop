@@ -12,4 +12,10 @@ public class BillDAO
         }
         private set { _instance = value; }
     }
+
+    public int GetUnCheckBillIDByTableID(int tableID)
+    {
+        DataProvider.Instance.AddInputParameter("TableID", tableID);
+        return DataProvider.Instance.ExecuteProcedure<BillDTO>("GetUnCheckBillIDByTableID").BillID;
+    }
 }
