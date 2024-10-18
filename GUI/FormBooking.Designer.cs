@@ -46,6 +46,8 @@
             columnHeader3 = new ColumnHeader();
             columnHeader4 = new ColumnHeader();
             panel3 = new Panel();
+            label9 = new Label();
+            txt_Price = new TextBox();
             label3 = new Label();
             label2 = new Label();
             btn_Add = new Button();
@@ -54,6 +56,8 @@
             cbo_Category = new ComboBox();
             cbo_Menu = new ComboBox();
             panel5 = new Panel();
+            txt_totalPrice = new Label();
+            label10 = new Label();
             numericUpDown2 = new NumericUpDown();
             button3 = new Button();
             button2 = new Button();
@@ -221,6 +225,8 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(label9);
+            panel3.Controls.Add(txt_Price);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(btn_Add);
@@ -233,11 +239,28 @@
             panel3.Size = new Size(473, 61);
             panel3.TabIndex = 6;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label9.Location = new Point(252, 11);
+            label9.Name = "label9";
+            label9.Size = new Size(28, 15);
+            label9.TabIndex = 9;
+            label9.Text = "Giá:";
+            // 
+            // txt_Price
+            // 
+            txt_Price.Location = new Point(286, 8);
+            txt_Price.Name = "txt_Price";
+            txt_Price.Size = new Size(93, 23);
+            txt_Price.TabIndex = 8;
+            // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label3.Location = new Point(13, 37);
+            label3.Location = new Point(3, 37);
             label3.Name = "label3";
             label3.Size = new Size(58, 15);
             label3.TabIndex = 6;
@@ -246,7 +269,7 @@
             // label2
             // 
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label2.Location = new Point(13, 11);
+            label2.Location = new Point(1, 11);
             label2.Name = "label2";
             label2.Size = new Size(66, 15);
             label2.TabIndex = 5;
@@ -254,7 +277,7 @@
             // 
             // btn_Add
             // 
-            btn_Add.Location = new Point(378, 4);
+            btn_Add.Location = new Point(385, 5);
             btn_Add.Name = "btn_Add";
             btn_Add.Size = new Size(85, 53);
             btn_Add.TabIndex = 2;
@@ -264,40 +287,45 @@
             // 
             // nm_quantity
             // 
-            nm_quantity.Location = new Point(300, 32);
+            nm_quantity.Location = new Point(286, 34);
+            nm_quantity.Minimum = new decimal(new int[] { 100, 0, 0, int.MinValue });
             nm_quantity.Name = "nm_quantity";
-            nm_quantity.Size = new Size(60, 23);
+            nm_quantity.Size = new Size(93, 23);
             nm_quantity.TabIndex = 3;
+            nm_quantity.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label1.Location = new Point(300, 8);
+            label1.Location = new Point(252, 36);
             label1.Name = "label1";
-            label1.Size = new Size(60, 15);
+            label1.Size = new Size(23, 15);
             label1.TabIndex = 4;
-            label1.Text = "Số lượng:";
+            label1.Text = "SL:";
             // 
             // cbo_Category
             // 
             cbo_Category.FormattingEnabled = true;
-            cbo_Category.Location = new Point(85, 8);
+            cbo_Category.Location = new Point(73, 8);
             cbo_Category.Name = "cbo_Category";
-            cbo_Category.Size = new Size(199, 23);
+            cbo_Category.Size = new Size(173, 23);
             cbo_Category.TabIndex = 0;
             cbo_Category.SelectedIndexChanged += cbo_Category_SelectedIndexChanged;
             // 
             // cbo_Menu
             // 
             cbo_Menu.FormattingEnabled = true;
-            cbo_Menu.Location = new Point(85, 34);
+            cbo_Menu.Location = new Point(73, 33);
             cbo_Menu.Name = "cbo_Menu";
-            cbo_Menu.Size = new Size(199, 23);
+            cbo_Menu.Size = new Size(173, 23);
             cbo_Menu.TabIndex = 1;
+            cbo_Menu.SelectedIndexChanged += cbo_Menu_SelectedIndexChanged;
             // 
             // panel5
             // 
+            panel5.Controls.Add(txt_totalPrice);
+            panel5.Controls.Add(label10);
             panel5.Controls.Add(numericUpDown2);
             panel5.Controls.Add(button3);
             panel5.Controls.Add(button2);
@@ -307,6 +335,25 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(473, 59);
             panel5.TabIndex = 12;
+            // 
+            // txt_totalPrice
+            // 
+            txt_totalPrice.AutoSize = true;
+            txt_totalPrice.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            txt_totalPrice.Location = new Point(285, 14);
+            txt_totalPrice.Name = "txt_totalPrice";
+            txt_totalPrice.Size = new Size(23, 25);
+            txt_totalPrice.TabIndex = 14;
+            txt_totalPrice.Text = "0";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(227, 22);
+            label10.Name = "label10";
+            label10.Size = new Size(60, 15);
+            label10.TabIndex = 13;
+            label10.Text = "Tổng tiền:";
             // 
             // numericUpDown2
             // 
@@ -375,6 +422,7 @@
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nm_quantity).EndInit();
             panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             ResumeLayout(false);
         }
@@ -413,5 +461,9 @@
         private Label lbl_BillID;
         private Label lbl_Username;
         private Label lbl_TableID;
+        private Label label9;
+        private TextBox txt_Price;
+        private Label txt_totalPrice;
+        private Label label10;
     }
 }

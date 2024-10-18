@@ -175,4 +175,19 @@ public class DataProvider
 
     public int ExecuteNonQuery(string queryString) => Execute(command => command.ExecuteNonQuery(), CommandType.Text, queryString);
     public int ExecuteSPNonQuery(string queryString) => Execute(command => command.ExecuteNonQuery(), CommandType.StoredProcedure, queryString);
+
+    public T ExecuteSQLScalar<T>(string sqlText) => Execute(command =>
+    {
+        object value = null;
+        try
+        {
+            value = command.ExecuteScalar();
+            return (T)Convert.ChangeType(value, typeof(T), CultureInfo.InvariantCulture);
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+    }, CommandType.Text, sqlText);
+
 }

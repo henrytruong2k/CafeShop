@@ -16,4 +16,8 @@ public class BillBUS
     private BillBUS() { }
 
     public int GetUnCheckBillIDByTableID(int id) => BillDAO.Instance.GetUnCheckBillIDByTableID(id);
+
+    public void InsertBill(int tableID, int menuID, long price, int quantity) => BillDAO.Instance.InsertBill(tableID, menuID, price, quantity);
+
+    public List<BillTempDTO> GetListTempBillByTableID(int tableID) => BillDAO.Instance.GetListTempBillByTableID(tableID);
 }

@@ -86,4 +86,9 @@ public class MenuDAO
             return false;
         }
     }
+
+    public long GetPrice(int menuID)
+    {
+        return DataProvider.Instance.ExecuteSQLScalar<long>($"SELECT dbo.FN_GetPrice({menuID})");
+    }
 }

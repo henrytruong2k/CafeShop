@@ -12,6 +12,8 @@ public class MenuBUS
         }
         private set { _instance = value; }
     }
+
+    private MenuBUS() { }
     
     public List<MenuDTO> GetMenus(string menuName = null) => MenuDAO.Instance.GetMenus(menuName);
 
@@ -21,4 +23,6 @@ public class MenuBUS
     public bool InsertMenu(MenuDTO menuDTO) => MenuDAO.Instance.InsertMenu(menuDTO);
     public bool UpdateMenu(MenuDTO menuDTO) => MenuDAO.Instance.UpdateMenu(menuDTO);
     public bool DeleteMenu(int menuID) => MenuDAO.Instance.DeleteMenu(menuID);
+
+    public long GetPrice(int menuID) => MenuDAO.Instance.GetPrice(menuID);
 }
