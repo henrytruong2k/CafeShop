@@ -56,6 +56,8 @@
             cbo_Category = new ComboBox();
             cbo_Menu = new ComboBox();
             panel5 = new Panel();
+            cbo_MergeTable = new ComboBox();
+            btn_MergeTable = new Button();
             txt_totalPrice = new Label();
             label10 = new Label();
             numericUpDown2 = new NumericUpDown();
@@ -80,7 +82,7 @@
             panel2.Controls.Add(panel3);
             panel2.Location = new Point(473, 12);
             panel2.Name = "panel2";
-            panel2.Size = new Size(502, 549);
+            panel2.Size = new Size(502, 575);
             panel2.TabIndex = 1;
             // 
             // panel1
@@ -324,6 +326,8 @@
             // 
             // panel5
             // 
+            panel5.Controls.Add(cbo_MergeTable);
+            panel5.Controls.Add(btn_MergeTable);
             panel5.Controls.Add(txt_totalPrice);
             panel5.Controls.Add(label10);
             panel5.Controls.Add(numericUpDown2);
@@ -333,14 +337,32 @@
             panel5.Controls.Add(btn_switchTable);
             panel5.Location = new Point(486, 494);
             panel5.Name = "panel5";
-            panel5.Size = new Size(473, 59);
+            panel5.Size = new Size(473, 80);
             panel5.TabIndex = 12;
+            // 
+            // cbo_MergeTable
+            // 
+            cbo_MergeTable.FormattingEnabled = true;
+            cbo_MergeTable.Location = new Point(101, 33);
+            cbo_MergeTable.Name = "cbo_MergeTable";
+            cbo_MergeTable.Size = new Size(93, 23);
+            cbo_MergeTable.TabIndex = 16;
+            // 
+            // btn_MergeTable
+            // 
+            btn_MergeTable.Location = new Point(101, 10);
+            btn_MergeTable.Name = "btn_MergeTable";
+            btn_MergeTable.Size = new Size(93, 24);
+            btn_MergeTable.TabIndex = 15;
+            btn_MergeTable.Text = "Gộp bàn";
+            btn_MergeTable.UseVisualStyleBackColor = true;
+            btn_MergeTable.Click += btn_MergeTable_Click;
             // 
             // txt_totalPrice
             // 
             txt_totalPrice.AutoSize = true;
             txt_totalPrice.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            txt_totalPrice.Location = new Point(282, 14);
+            txt_totalPrice.Location = new Point(292, 33);
             txt_totalPrice.Name = "txt_totalPrice";
             txt_totalPrice.Size = new Size(23, 25);
             txt_totalPrice.TabIndex = 14;
@@ -349,7 +371,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(216, 22);
+            label10.Location = new Point(292, 15);
             label10.Name = "label10";
             label10.Size = new Size(60, 15);
             label10.TabIndex = 13;
@@ -357,14 +379,14 @@
             // 
             // numericUpDown2
             // 
-            numericUpDown2.Location = new Point(124, 33);
+            numericUpDown2.Location = new Point(200, 33);
             numericUpDown2.Name = "numericUpDown2";
             numericUpDown2.Size = new Size(86, 23);
             numericUpDown2.TabIndex = 12;
             // 
             // button3
             // 
-            button3.Location = new Point(124, 12);
+            button3.Location = new Point(200, 11);
             button3.Name = "button3";
             button3.Size = new Size(86, 23);
             button3.TabIndex = 11;
@@ -373,7 +395,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(384, 3);
+            button2.Location = new Point(388, 5);
             button2.Name = "button2";
             button2.Size = new Size(85, 53);
             button2.TabIndex = 10;
@@ -383,7 +405,7 @@
             // cbo_SwitchTable
             // 
             cbo_SwitchTable.FormattingEnabled = true;
-            cbo_SwitchTable.Location = new Point(13, 33);
+            cbo_SwitchTable.Location = new Point(2, 33);
             cbo_SwitchTable.Name = "cbo_SwitchTable";
             cbo_SwitchTable.Size = new Size(93, 23);
             cbo_SwitchTable.TabIndex = 9;
@@ -391,8 +413,8 @@
             // 
             // btn_switchTable
             // 
-            btn_switchTable.Location = new Point(13, 11);
-            btn_switchTable.Name = "btn_SwitchTable";
+            btn_switchTable.Location = new Point(2, 10);
+            btn_switchTable.Name = "btn_switchTable";
             btn_switchTable.Size = new Size(93, 24);
             btn_switchTable.TabIndex = 8;
             btn_switchTable.Text = "Chuyển bàn";
@@ -403,14 +425,14 @@
             // 
             flpTable.Location = new Point(7, 12);
             flpTable.Name = "flpTable";
-            flpTable.Size = new Size(460, 549);
+            flpTable.Size = new Size(460, 575);
             flpTable.TabIndex = 2;
             // 
             // FormBooking
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(988, 565);
+            ClientSize = new Size(985, 599);
             Controls.Add(flpTable);
             Controls.Add(panel5);
             Controls.Add(panel2);
@@ -467,5 +489,7 @@
         private TextBox txt_Price;
         private Label txt_totalPrice;
         private Label label10;
+        private ComboBox cbo_MergeTable;
+        private Button btn_MergeTable;
     }
 }

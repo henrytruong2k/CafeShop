@@ -23,6 +23,4 @@ public class MenuBUS
     public bool InsertMenu(MenuDTO menuDTO) => MenuDAO.Instance.InsertMenu(menuDTO);
     public bool UpdateMenu(MenuDTO menuDTO) => MenuDAO.Instance.UpdateMenu(menuDTO);
     public bool DeleteMenu(int menuID) => MenuDAO.Instance.DeleteMenu(menuID);
-
-    public long GetPrice(int menuID) => MenuDAO.Instance.GetPrice(menuID);
 }

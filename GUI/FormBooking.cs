@@ -15,6 +15,7 @@ public partial class FormBooking : Form
         LoadTables();
         LoadCategories();
         btn_switchTable.Enabled = false;
+        btn_MergeTable.Enabled = false;
     }
 
     private void LoadCategories()
@@ -38,10 +39,18 @@ public partial class FormBooking : Form
 
     private void LoadSwitchableTables(int tableID)
     {
-        cbo_SwitchTable.DataSource = TableBUS.Instance.LoadSwitchableTables(tableID);
+        cbo_SwitchTable.DataSource = TableBUS.Instance.LoadTables(tableID);
         cbo_SwitchTable.ValueMember = nameof(TableDTO.TableID);
         cbo_SwitchTable.DisplayMember = nameof(TableDTO.TableName);
         cbo_SwitchTable.SelectedItem = -1;
+    }
+
+    public void LoadMergeableTables(int tableID)
+    {
+        cbo_MergeTable.DataSource = TableBUS.Instance.LoadTables(tableID);
+        cbo_MergeTable.ValueMember = nameof(TableDTO.TableID);
+        cbo_MergeTable.DisplayMember = nameof(TableDTO.TableName);
+        cbo_MergeTable.SelectedItem = -1;
     }
 
     private void LoadTables()
@@ -96,9 +105,10 @@ public partial class FormBooking : Form
         lvMenuItem.Tag = (sender as Button).Tag;
         ShowBill(tableID);
         LoadSwitchableTables(tableID);
+        LoadMergeableTables(tableID);
         btn_switchTable.Enabled = true;
+        btn_MergeTable.Enabled = true;
     }
-
 
     private void btn_Add_Click(object sender, EventArgs e)
     {
@@ -174,6 +184,26 @@ public partial class FormBooking : Form
             LoadTables();
             LoadCategories();
             btn_switchTable.Enabled = false;
+        }
+    }
+
+    private void btn_MergeTable_Click(object sender, EventArgs e)
+    {
+        int tableID1 = (lvMenuItem.Tag as TableDTO).TableID;
+        if (cbo_MergeTable.SelectedValue == null)
+        {
+            MessageBox.Show("Hãy chọn bàn muốn gộp");
+            return;
+        }
+        int tableID2 = (int)cbo_MergeTable.SelectedValue;
+        string msg = $"Bạn có thật sự muốn gộp {(lvMenuItem.Tag as TableDTO).TableName} vô {cbo_MergeTable.Text}";
+        bool isOK = MessageBox.Show(msg, "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK;
+        if (isOK)
+        {
+            TableBUS.Instance.MergeTable(tableID1, tableID2);
+            LoadTables();
+            LoadCategories();
+            btn_MergeTable.Enabled = false;
         }
     }
 }
