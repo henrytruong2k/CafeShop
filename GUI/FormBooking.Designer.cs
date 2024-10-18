@@ -61,8 +61,8 @@
             numericUpDown2 = new NumericUpDown();
             button3 = new Button();
             button2 = new Button();
-            comboBox3 = new ComboBox();
-            button1 = new Button();
+            cbo_SwitchTable = new ComboBox();
+            btn_switchTable = new Button();
             flpTable = new FlowLayoutPanel();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             panel2.SuspendLayout();
@@ -329,8 +329,8 @@
             panel5.Controls.Add(numericUpDown2);
             panel5.Controls.Add(button3);
             panel5.Controls.Add(button2);
-            panel5.Controls.Add(comboBox3);
-            panel5.Controls.Add(button1);
+            panel5.Controls.Add(cbo_SwitchTable);
+            panel5.Controls.Add(btn_switchTable);
             panel5.Location = new Point(486, 494);
             panel5.Name = "panel5";
             panel5.Size = new Size(473, 59);
@@ -340,7 +340,7 @@
             // 
             txt_totalPrice.AutoSize = true;
             txt_totalPrice.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            txt_totalPrice.Location = new Point(285, 14);
+            txt_totalPrice.Location = new Point(282, 14);
             txt_totalPrice.Name = "txt_totalPrice";
             txt_totalPrice.Size = new Size(23, 25);
             txt_totalPrice.TabIndex = 14;
@@ -349,7 +349,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(227, 22);
+            label10.Location = new Point(216, 22);
             label10.Name = "label10";
             label10.Size = new Size(60, 15);
             label10.TabIndex = 13;
@@ -357,14 +357,14 @@
             // 
             // numericUpDown2
             // 
-            numericUpDown2.Location = new Point(135, 33);
+            numericUpDown2.Location = new Point(124, 33);
             numericUpDown2.Name = "numericUpDown2";
             numericUpDown2.Size = new Size(86, 23);
             numericUpDown2.TabIndex = 12;
             // 
             // button3
             // 
-            button3.Location = new Point(135, 11);
+            button3.Location = new Point(124, 12);
             button3.Name = "button3";
             button3.Size = new Size(86, 23);
             button3.TabIndex = 11;
@@ -373,29 +373,31 @@
             // 
             // button2
             // 
-            button2.Location = new Point(378, 3);
+            button2.Location = new Point(384, 3);
             button2.Name = "button2";
             button2.Size = new Size(85, 53);
             button2.TabIndex = 10;
             button2.Text = "Thanh toán";
             button2.UseVisualStyleBackColor = true;
             // 
-            // comboBox3
+            // cbo_SwitchTable
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(13, 33);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(93, 23);
-            comboBox3.TabIndex = 9;
+            cbo_SwitchTable.FormattingEnabled = true;
+            cbo_SwitchTable.Location = new Point(13, 33);
+            cbo_SwitchTable.Name = "cbo_SwitchTable";
+            cbo_SwitchTable.Size = new Size(93, 23);
+            cbo_SwitchTable.TabIndex = 9;
+            cbo_SwitchTable.SelectedIndexChanged += cbo_SwitchTable_SelectedIndexChanged;
             // 
-            // button1
+            // btn_switchTable
             // 
-            button1.Location = new Point(13, 11);
-            button1.Name = "button1";
-            button1.Size = new Size(93, 24);
-            button1.TabIndex = 8;
-            button1.Text = "Chuyển bàn";
-            button1.UseVisualStyleBackColor = true;
+            btn_switchTable.Location = new Point(13, 11);
+            btn_switchTable.Name = "btn_SwitchTable";
+            btn_switchTable.Size = new Size(93, 24);
+            btn_switchTable.TabIndex = 8;
+            btn_switchTable.Text = "Chuyển bàn";
+            btn_switchTable.UseVisualStyleBackColor = true;
+            btn_switchTable.Click += btn_SwitchTable_Click;
             // 
             // flpTable
             // 
@@ -447,8 +449,8 @@
         private NumericUpDown numericUpDown2;
         private Button button3;
         private Button button2;
-        private ComboBox comboBox3;
-        private Button button1;
+        private ComboBox cbo_SwitchTable;
+        private Button btn_switchTable;
         private Label label6;
         private Label label5;
         private Label label4;

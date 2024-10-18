@@ -14,6 +14,7 @@ public partial class FormBooking : Form
     {
         LoadTables();
         LoadCategories();
+        btn_switchTable.Enabled = false;
     }
 
     private void LoadCategories()
@@ -35,8 +36,17 @@ public partial class FormBooking : Form
         txt_Price.Text = string.Empty;
     }
 
+    private void LoadSwitchableTables(int tableID)
+    {
+        cbo_SwitchTable.DataSource = TableBUS.Instance.LoadSwitchableTables(tableID);
+        cbo_SwitchTable.ValueMember = nameof(TableDTO.TableID);
+        cbo_SwitchTable.DisplayMember = nameof(TableDTO.TableName);
+        cbo_SwitchTable.SelectedItem = -1;
+    }
+
     private void LoadTables()
     {
+        flpTable.Controls.Clear();
         List<TableDTO> tables = TableBUS.Instance.LoadTables();
         foreach (TableDTO table in tables)
         {
@@ -85,6 +95,8 @@ public partial class FormBooking : Form
         int tableID = ((sender as Button).Tag as TableDTO).TableID;
         lvMenuItem.Tag = (sender as Button).Tag;
         ShowBill(tableID);
+        LoadSwitchableTables(tableID);
+        btn_switchTable.Enabled = true;
     }
 
 
@@ -119,6 +131,8 @@ public partial class FormBooking : Form
             BillDetailBus.Instance.InsertBillDetail(billID, menuID, price, quantity);
         }
         ShowBill(table.TableID);
+        LoadTables();
+        LoadCategories();
     }
 
     private void cbo_Category_SelectedIndexChanged(object sender, EventArgs e)
@@ -135,6 +149,31 @@ public partial class FormBooking : Form
         {
             MenuDTO selectedItem = (MenuDTO)cbo_Menu.SelectedItem;
             txt_Price.Text = selectedItem.Price.ToString();
+        }
+    }
+
+    private void cbo_SwitchTable_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void btn_SwitchTable_Click(object sender, EventArgs e)
+    {
+        int tableID1 = (lvMenuItem.Tag as TableDTO).TableID;
+        if (cbo_SwitchTable.SelectedValue == null)
+        {
+            MessageBox.Show("Hãy chọn bàn muốn chuyển");
+            return;
+        }
+        int tableID2 = (int)cbo_SwitchTable.SelectedValue;
+        string msg = $"Bạn có thật sự muốn chuyển {(lvMenuItem.Tag as TableDTO).TableName} sang {cbo_SwitchTable.Text}";
+        bool isOK = MessageBox.Show(msg, "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK;
+        if (isOK)
+        {
+            TableBUS.Instance.SwitchTable(tableID1, tableID2);
+            LoadTables();
+            LoadCategories();
+            btn_switchTable.Enabled = false;
         }
     }
 }
