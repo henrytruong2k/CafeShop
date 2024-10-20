@@ -41,7 +41,7 @@ public class MenuDAO
             DataProvider.Instance.AddInputParameter("Price", menu.Price);
             DataProvider.Instance.AddInputParameter("CategoryID", menu.CategoryID);
             DataProvider.Instance.AddInputParameter("UserID", Core.AppContext.UserID);
-            DataProvider.Instance.AddInputParameter("Paramerters", JsonSerializer.Serialize(menu, _options));
+            DataProvider.Instance.AddInputParameter("Parameters", JsonSerializer.Serialize(menu, _options));
             DataProvider.Instance.ExecuteProcedure<EmptyData>("SP_InsertMenu");
             return true;
         }
@@ -61,7 +61,7 @@ public class MenuDAO
             DataProvider.Instance.AddInputParameter("Price", menu.Price);
             DataProvider.Instance.AddInputParameter("CategoryID", menu.CategoryID);
             DataProvider.Instance.AddInputParameter("UserID", Core.AppContext.UserID);
-            DataProvider.Instance.AddInputParameter("Paramerters", JsonSerializer.Serialize(menu, _options));
+            DataProvider.Instance.AddInputParameter("Parameters", JsonSerializer.Serialize(menu, _options));
             DataProvider.Instance.ExecuteProcedure<EmptyData>("SP_UpdateMenu");
             return true;
         }
@@ -77,7 +77,7 @@ public class MenuDAO
         {
             DataProvider.Instance.AddInputParameter("MenuID", menuID);
             DataProvider.Instance.AddInputParameter("UserID", Core.AppContext.UserID);
-            DataProvider.Instance.AddInputParameter("Paramerters", JsonSerializer.Serialize(new { MenuID = menuID }, _options));
+            DataProvider.Instance.AddInputParameter("Parameters", JsonSerializer.Serialize(new { MenuID = menuID }, _options));
             DataProvider.Instance.ExecuteProcedure<EmptyData>("SP_DeleteMenu");
             return true;
         }

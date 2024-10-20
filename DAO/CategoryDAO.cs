@@ -33,7 +33,7 @@ public class CategoryDAO
             DataProvider.Instance.AddInputParameter("CategoryName", cate.CategoryName);
             DataProvider.Instance.AddInputParameter("Note", cate.Note);
             DataProvider.Instance.AddInputParameter("UserID", Core.AppContext.UserID);
-            DataProvider.Instance.AddInputParameter("Paramerters", JsonSerializer.Serialize(cate, _options));
+            DataProvider.Instance.AddInputParameter("Parameters", JsonSerializer.Serialize(cate, _options));
             DataProvider.Instance.ExecuteProcedure<EmptyData>("SP_AddCategory");
             return true;
         }
@@ -51,7 +51,7 @@ public class CategoryDAO
             DataProvider.Instance.AddInputParameter("CategoryName", cate.CategoryName);
             DataProvider.Instance.AddInputParameter("Note", cate.Note);
             DataProvider.Instance.AddInputParameter("UserID", Core.AppContext.UserID);
-            DataProvider.Instance.AddInputParameter("Paramerters", JsonSerializer.Serialize(cate, _options));
+            DataProvider.Instance.AddInputParameter("Parameters", JsonSerializer.Serialize(cate, _options));
             DataProvider.Instance.ExecuteProcedure<EmptyData>("SP_UpdateCategory");
             return true;
         }
@@ -68,7 +68,7 @@ public class CategoryDAO
         {
             DataProvider.Instance.AddInputParameter("CategoryID", categoryID);
             DataProvider.Instance.AddInputParameter("UserID", Core.AppContext.UserID);
-            DataProvider.Instance.AddInputParameter("Paramerters", JsonSerializer.Serialize(new { CategoryID = categoryID }, _options));
+            DataProvider.Instance.AddInputParameter("Parameters", JsonSerializer.Serialize(new { CategoryID = categoryID }, _options));
             DataProvider.Instance.ExecuteProcedure<EmptyData>("SP_DeleteCategory");
             return true;
         }
