@@ -226,9 +226,8 @@
             hid_totalPrice.AutoSize = true;
             hid_totalPrice.Location = new Point(296, 58);
             hid_totalPrice.Name = "hid_totalPrice";
-            hid_totalPrice.Size = new Size(79, 15);
+            hid_totalPrice.Size = new Size(0, 15);
             hid_totalPrice.TabIndex = 17;
-            hid_totalPrice.Text = "hid_totalPrice";
             hid_totalPrice.Visible = false;
             // 
             // cbo_MergeTable
@@ -274,6 +273,7 @@
             nm_Discount.Name = "nm_Discount";
             nm_Discount.Size = new Size(86, 23);
             nm_Discount.TabIndex = 12;
+            nm_Discount.ValueChanged += nm_Discount_ValueChanged;
             // 
             // button3
             // 
@@ -281,7 +281,7 @@
             button3.Name = "button3";
             button3.Size = new Size(86, 23);
             button3.TabIndex = 11;
-            button3.Text = "Giảm giá";
+            button3.Text = "Giảm giá (%)";
             button3.UseVisualStyleBackColor = true;
             // 
             // btn_Checkout

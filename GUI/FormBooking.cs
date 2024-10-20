@@ -234,4 +234,9 @@ public partial class FormBooking : Form
             LoadCategories();
         }
     }
+
+    private void nm_Discount_ValueChanged(object sender, EventArgs e)
+    {
+        nm_Discount.Value = Convert.ToInt32(nm_Discount.Value);
+    }
 }
