@@ -1,24 +1,20 @@
-﻿namespace CafeShop.DAO;
+﻿using System.Text.Json.Serialization;
+using System.Text.Json;
+
+namespace CafeShop.DAO;
 
 public class BillDAO
 {
+    private static readonly JsonSerializerOptions _options = new() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull };
     private static BillDAO _instance;
-    public static BillDAO Instance
-    {
-        get
-        {
-            _instance ??= new BillDAO();
-            return _instance;
-        }
-        private set { _instance = value; }
-    }
+    public static BillDAO Instance => _instance ??= new BillDAO();
 
     private BillDAO() { }
 
     public int GetUnCheckBillIDByTableID(int tableID)
     {
         DataProvider.Instance.AddInputParameter("TableID", tableID);
-        BillDTO bill = DataProvider.Instance.ExecuteProcedure<BillDTO>("GetUnCheckBillIDByTableID");
+        BillDTO bill = DataProvider.Instance.ExecuteProcedure<BillDTO>("SP_GetUnCheckBillID");
         return bill != null ? bill.BillID : -1;
     }
 
@@ -36,5 +32,23 @@ public class BillDAO
     {
         DataProvider.Instance.AddInputParameter("TableID", tableID);
         return DataProvider.Instance.ExecuteProcedureGetList<BillTempDTO>("SP_GetListTempBillByTableID");
+    }
+
+    public void Checkout(int billID, long price, int discount, long totalPrice)
+    {
+        DataProvider.Instance.AddInputParameter("BillID", billID);
+        DataProvider.Instance.AddInputParameter("Price", price);
+        DataProvider.Instance.AddInputParameter("Discount", discount);
+        DataProvider.Instance.AddInputParameter("TotalPrice", totalPrice);
+        DataProvider.Instance.AddInputParameter("UserID", Core.AppContext.UserID);
+        //TODO: fix typo parameters
+        DataProvider.Instance.AddInputParameter("@Parameters", JsonSerializer.Serialize(new
+        {
+            BillID = billID,
+            Price = price,
+            Discount = discount,
+            TotalPrice = totalPrice
+        }, _options));
+        DataProvider.Instance.ExecuteSPNonQuery("SP_CheckoutBill");
     }
 }

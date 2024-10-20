@@ -1,7 +1,5 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CafeShop.DAO;
 

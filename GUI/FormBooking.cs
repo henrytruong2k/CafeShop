@@ -5,6 +5,7 @@ namespace CafeShop.GUI;
 public partial class FormBooking : Form
 {
     private bool isLoadingCategories = false;
+    private Button? previousClickBtn = new();
     public FormBooking()
     {
         InitializeComponent();
@@ -16,6 +17,7 @@ public partial class FormBooking : Form
         LoadCategories();
         btn_switchTable.Enabled = false;
         btn_MergeTable.Enabled = false;
+        previousClickBtn = null;
     }
 
     private void LoadCategories()
@@ -26,6 +28,7 @@ public partial class FormBooking : Form
         cbo_Category.DisplayMember = nameof(CategoryDTO.CategoryName);
         cbo_Category.SelectedIndex = -1;
         isLoadingCategories = false;
+        cbo_Menu.SelectedIndex = -1;
     }
 
     private void LoadMenusByCategoryID(int categoryID)
@@ -47,7 +50,7 @@ public partial class FormBooking : Form
 
     public void LoadMergeableTables(int tableID)
     {
-        cbo_MergeTable.DataSource = TableBUS.Instance.LoadTables(tableID);
+        cbo_MergeTable.DataSource = TableBUS.Instance.LoadMergeableTables(tableID);
         cbo_MergeTable.ValueMember = nameof(TableDTO.TableID);
         cbo_MergeTable.DisplayMember = nameof(TableDTO.TableName);
         cbo_MergeTable.SelectedItem = -1;
@@ -97,17 +100,27 @@ public partial class FormBooking : Form
             lvMenuItem.Items.Add(lsvItem);
         }
         txt_totalPrice.Text = totalPrice.ToVND();
+        hid_totalPrice.Text = totalPrice.ToString();
     }
 
     private void btn_Click(object sender, EventArgs e)
     {
-        int tableID = ((sender as Button).Tag as TableDTO).TableID;
-        lvMenuItem.Tag = (sender as Button).Tag;
+        Button button = sender as Button;
+        if (button == previousClickBtn) return; // avoid spam
+        if (previousClickBtn != null && button != previousClickBtn)
+        {
+            previousClickBtn.ImageIndex = 0; // hide clicked status previous
+        }
+        button.Image = new Bitmap(Image.FromFile(@"Resources\accept.png"), new Size(20, 20));
+        button.ImageAlign = ContentAlignment.MiddleLeft;
+        int tableID = (button.Tag as TableDTO).TableID;
+        lvMenuItem.Tag = button.Tag;
         ShowBill(tableID);
         LoadSwitchableTables(tableID);
         LoadMergeableTables(tableID);
         btn_switchTable.Enabled = true;
         btn_MergeTable.Enabled = true;
+        previousClickBtn = button;
     }
 
     private void btn_Add_Click(object sender, EventArgs e)
@@ -162,11 +175,6 @@ public partial class FormBooking : Form
         }
     }
 
-    private void cbo_SwitchTable_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-
     private void btn_SwitchTable_Click(object sender, EventArgs e)
     {
         int tableID1 = (lvMenuItem.Tag as TableDTO).TableID;
@@ -204,6 +212,26 @@ public partial class FormBooking : Form
             LoadTables();
             LoadCategories();
             btn_MergeTable.Enabled = false;
+        }
+    }
+
+    private void btn_Checkout_Click(object sender, EventArgs e)
+    {
+        TableDTO table = lvMenuItem.Tag as TableDTO;
+        if (table == null) return;
+        int billID = BillBUS.Instance.GetUnCheckBillIDByTableID(table.TableID);
+        if (billID == -1) return;
+        int discount = (int)nm_Discount.Value;
+        long totalPrice = Convert.ToInt64(hid_totalPrice.Text);
+        long finalPrice = totalPrice - (totalPrice * discount / 100);
+        string msg = $"Bạn có chắc thanh toán hóa đơn của bàn {table.TableName} với giá tiền {finalPrice.ToVND()}";
+        bool isOK = MessageBox.Show(msg, "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK;
+        if (isOK)
+        {
+            BillDAO.Instance.Checkout(billID, totalPrice, discount, finalPrice);
+            ShowBill(table.TableID);
+            LoadTables();
+            LoadCategories();
         }
     }
 }

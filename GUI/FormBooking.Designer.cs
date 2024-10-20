@@ -29,17 +29,6 @@
         private void InitializeComponent()
         {
             panel2 = new Panel();
-            panel1 = new Panel();
-            lbl_Username = new Label();
-            lbl_TableID = new Label();
-            lbl_Checkout = new Label();
-            lbl_Checkin = new Label();
-            lbl_BillID = new Label();
-            label8 = new Label();
-            label7 = new Label();
-            label6 = new Label();
-            label5 = new Label();
-            label4 = new Label();
             lvMenuItem = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
@@ -56,28 +45,27 @@
             cbo_Category = new ComboBox();
             cbo_Menu = new ComboBox();
             panel5 = new Panel();
+            hid_totalPrice = new Label();
             cbo_MergeTable = new ComboBox();
             btn_MergeTable = new Button();
             txt_totalPrice = new Label();
             label10 = new Label();
-            numericUpDown2 = new NumericUpDown();
+            nm_Discount = new NumericUpDown();
             button3 = new Button();
-            button2 = new Button();
+            btn_Checkout = new Button();
             cbo_SwitchTable = new ComboBox();
             btn_switchTable = new Button();
             flpTable = new FlowLayoutPanel();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             panel2.SuspendLayout();
-            panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nm_quantity).BeginInit();
             panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nm_Discount).BeginInit();
             SuspendLayout();
             // 
             // panel2
             // 
-            panel2.Controls.Add(panel1);
             panel2.Controls.Add(lvMenuItem);
             panel2.Controls.Add(panel3);
             panel2.Location = new Point(473, 12);
@@ -85,123 +73,15 @@
             panel2.Size = new Size(502, 575);
             panel2.TabIndex = 1;
             // 
-            // panel1
-            // 
-            panel1.Controls.Add(lbl_Username);
-            panel1.Controls.Add(lbl_TableID);
-            panel1.Controls.Add(lbl_Checkout);
-            panel1.Controls.Add(lbl_Checkin);
-            panel1.Controls.Add(lbl_BillID);
-            panel1.Controls.Add(label8);
-            panel1.Controls.Add(label7);
-            panel1.Controls.Add(label6);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(label4);
-            panel1.Location = new Point(13, 77);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(472, 93);
-            panel1.TabIndex = 17;
-            // 
-            // lbl_Username
-            // 
-            lbl_Username.AutoSize = true;
-            lbl_Username.Location = new Point(299, 38);
-            lbl_Username.Name = "lbl_Username";
-            lbl_Username.Size = new Size(38, 15);
-            lbl_Username.TabIndex = 23;
-            lbl_Username.Text = "label9";
-            // 
-            // lbl_TableID
-            // 
-            lbl_TableID.AutoSize = true;
-            lbl_TableID.Location = new Point(299, 14);
-            lbl_TableID.Name = "lbl_TableID";
-            lbl_TableID.Size = new Size(38, 15);
-            lbl_TableID.TabIndex = 22;
-            lbl_TableID.Text = "label9";
-            // 
-            // lbl_Checkout
-            // 
-            lbl_Checkout.AutoSize = true;
-            lbl_Checkout.Location = new Point(92, 65);
-            lbl_Checkout.Name = "lbl_Checkout";
-            lbl_Checkout.Size = new Size(44, 15);
-            lbl_Checkout.TabIndex = 21;
-            lbl_Checkout.Text = "label11";
-            // 
-            // lbl_Checkin
-            // 
-            lbl_Checkin.AutoSize = true;
-            lbl_Checkin.Location = new Point(92, 38);
-            lbl_Checkin.Name = "lbl_Checkin";
-            lbl_Checkin.Size = new Size(47, 15);
-            lbl_Checkin.TabIndex = 20;
-            lbl_Checkin.Text = "Giờ vào";
-            // 
-            // lbl_BillID
-            // 
-            lbl_BillID.AutoSize = true;
-            lbl_BillID.Location = new Point(92, 14);
-            lbl_BillID.Name = "lbl_BillID";
-            lbl_BillID.Size = new Size(24, 15);
-            lbl_BillID.TabIndex = 19;
-            lbl_BillID.Text = "Mã";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(227, 38);
-            label8.Name = "label8";
-            label8.Size = new Size(64, 15);
-            label8.TabIndex = 18;
-            label8.Text = "Nhân viên:";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(12, 14);
-            label7.Name = "label7";
-            label7.Size = new Size(74, 15);
-            label7.TabIndex = 17;
-            label7.Text = "Mã hóa đơn:";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(12, 65);
-            label6.Name = "label6";
-            label6.Size = new Size(41, 15);
-            label6.TabIndex = 16;
-            label6.Text = "Giờ ra:";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(12, 38);
-            label5.Name = "label5";
-            label5.Size = new Size(50, 15);
-            label5.TabIndex = 15;
-            label5.Text = "Giờ vào:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(227, 14);
-            label4.Name = "label4";
-            label4.Size = new Size(30, 15);
-            label4.TabIndex = 14;
-            label4.Text = "Bàn:";
-            // 
             // lvMenuItem
             // 
-            lvMenuItem.AllowColumnReorder = true;
             lvMenuItem.BackColor = SystemColors.Window;
             lvMenuItem.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
             lvMenuItem.FullRowSelect = true;
             lvMenuItem.GridLines = true;
-            lvMenuItem.Location = new Point(12, 176);
+            lvMenuItem.Location = new Point(12, 74);
             lvMenuItem.Name = "lvMenuItem";
-            lvMenuItem.Size = new Size(472, 300);
+            lvMenuItem.Size = new Size(484, 399);
             lvMenuItem.TabIndex = 13;
             lvMenuItem.UseCompatibleStateImageBehavior = false;
             lvMenuItem.View = View.Details;
@@ -209,7 +89,7 @@
             // columnHeader1
             // 
             columnHeader1.Text = "Tên món";
-            columnHeader1.Width = 200;
+            columnHeader1.Width = 220;
             // 
             // columnHeader2
             // 
@@ -238,7 +118,7 @@
             panel3.Controls.Add(cbo_Menu);
             panel3.Location = new Point(12, 10);
             panel3.Name = "panel3";
-            panel3.Size = new Size(473, 61);
+            panel3.Size = new Size(487, 61);
             panel3.TabIndex = 6;
             // 
             // label9
@@ -279,7 +159,7 @@
             // 
             // btn_Add
             // 
-            btn_Add.Location = new Point(385, 5);
+            btn_Add.Location = new Point(399, 5);
             btn_Add.Name = "btn_Add";
             btn_Add.Size = new Size(85, 53);
             btn_Add.TabIndex = 2;
@@ -326,19 +206,30 @@
             // 
             // panel5
             // 
+            panel5.Controls.Add(hid_totalPrice);
             panel5.Controls.Add(cbo_MergeTable);
             panel5.Controls.Add(btn_MergeTable);
             panel5.Controls.Add(txt_totalPrice);
             panel5.Controls.Add(label10);
-            panel5.Controls.Add(numericUpDown2);
+            panel5.Controls.Add(nm_Discount);
             panel5.Controls.Add(button3);
-            panel5.Controls.Add(button2);
+            panel5.Controls.Add(btn_Checkout);
             panel5.Controls.Add(cbo_SwitchTable);
             panel5.Controls.Add(btn_switchTable);
             panel5.Location = new Point(486, 494);
             panel5.Name = "panel5";
-            panel5.Size = new Size(473, 80);
+            panel5.Size = new Size(483, 80);
             panel5.TabIndex = 12;
+            // 
+            // hid_totalPrice
+            // 
+            hid_totalPrice.AutoSize = true;
+            hid_totalPrice.Location = new Point(296, 58);
+            hid_totalPrice.Name = "hid_totalPrice";
+            hid_totalPrice.Size = new Size(79, 15);
+            hid_totalPrice.TabIndex = 17;
+            hid_totalPrice.Text = "hid_totalPrice";
+            hid_totalPrice.Visible = false;
             // 
             // cbo_MergeTable
             // 
@@ -361,10 +252,10 @@
             // txt_totalPrice
             // 
             txt_totalPrice.AutoSize = true;
-            txt_totalPrice.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            txt_totalPrice.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             txt_totalPrice.Location = new Point(292, 33);
             txt_totalPrice.Name = "txt_totalPrice";
-            txt_totalPrice.Size = new Size(23, 25);
+            txt_totalPrice.Size = new Size(19, 21);
             txt_totalPrice.TabIndex = 14;
             txt_totalPrice.Text = "0";
             // 
@@ -377,12 +268,12 @@
             label10.TabIndex = 13;
             label10.Text = "Tổng tiền:";
             // 
-            // numericUpDown2
+            // nm_Discount
             // 
-            numericUpDown2.Location = new Point(200, 33);
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(86, 23);
-            numericUpDown2.TabIndex = 12;
+            nm_Discount.Location = new Point(200, 33);
+            nm_Discount.Name = "nm_Discount";
+            nm_Discount.Size = new Size(86, 23);
+            nm_Discount.TabIndex = 12;
             // 
             // button3
             // 
@@ -393,14 +284,15 @@
             button3.Text = "Giảm giá";
             button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btn_Checkout
             // 
-            button2.Location = new Point(388, 5);
-            button2.Name = "button2";
-            button2.Size = new Size(85, 53);
-            button2.TabIndex = 10;
-            button2.Text = "Thanh toán";
-            button2.UseVisualStyleBackColor = true;
+            btn_Checkout.Location = new Point(395, 3);
+            btn_Checkout.Name = "btn_Checkout";
+            btn_Checkout.Size = new Size(85, 53);
+            btn_Checkout.TabIndex = 10;
+            btn_Checkout.Text = "Thanh toán";
+            btn_Checkout.UseVisualStyleBackColor = true;
+            btn_Checkout.Click += btn_Checkout_Click;
             // 
             // cbo_SwitchTable
             // 
@@ -409,7 +301,6 @@
             cbo_SwitchTable.Name = "cbo_SwitchTable";
             cbo_SwitchTable.Size = new Size(93, 23);
             cbo_SwitchTable.TabIndex = 9;
-            cbo_SwitchTable.SelectedIndexChanged += cbo_SwitchTable_SelectedIndexChanged;
             // 
             // btn_switchTable
             // 
@@ -440,14 +331,12 @@
             Text = "FormBooking";
             Load += FormBooking_Load;
             panel2.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nm_quantity).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nm_Discount).EndInit();
             ResumeLayout(false);
         }
 
@@ -468,28 +357,18 @@
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader4;
         private Panel panel5;
-        private NumericUpDown numericUpDown2;
+        private NumericUpDown nm_Discount;
         private Button button3;
-        private Button button2;
+        private Button btn_Checkout;
         private ComboBox cbo_SwitchTable;
         private Button btn_switchTable;
-        private Label label6;
-        private Label label5;
-        private Label label4;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private Panel panel1;
-        private Label label8;
-        private Label label7;
-        private Label lbl_Checkout;
-        private Label lbl_Checkin;
-        private Label lbl_BillID;
-        private Label lbl_Username;
-        private Label lbl_TableID;
         private Label label9;
         private TextBox txt_Price;
         private Label txt_totalPrice;
         private Label label10;
         private ComboBox cbo_MergeTable;
         private Button btn_MergeTable;
+        private Label hid_totalPrice;
     }
 }

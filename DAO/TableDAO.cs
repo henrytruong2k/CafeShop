@@ -8,6 +8,8 @@ public class TableDAO
     public List<TableDTO> LoadTables() => DataProvider.Instance.ExecuteSQLGetList<TableDTO>("SELECT * FROM TableFood WHERE Status = 1");
     public List<TableDTO> LoadTables(int tableID) => DataProvider.Instance.ExecuteSQLGetList<TableDTO>($"SELECT TableID, TableName from TableFood WHERE TableID <> {tableID} AND Status = 1");
 
+    public List<TableDTO> LoadMergeableTables(int tableID) => DataProvider.Instance.ExecuteSQLGetList<TableDTO>($"SELECT TableID, TableName from TableFood WHERE TableID <> {tableID} AND Status = 1 AND BookingStatus = 1");
+
     public void SwitchTable(int tableID1, int tableID2)
     {
         DataProvider.Instance.AddInputParameter("TableID1", tableID1);

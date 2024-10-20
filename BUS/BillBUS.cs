@@ -20,4 +20,5 @@ public class BillBUS
     public void InsertBill(int tableID, int menuID, long price, int quantity) => BillDAO.Instance.InsertBill(tableID, menuID, price, quantity);
 
     public List<BillTempDTO> GetListTempBillByTableID(int tableID) => BillDAO.Instance.GetListTempBillByTableID(tableID);
+    public void Checkout(int billID, long price, int discount, long totalPrice) => BillDAO.Instance.Checkout(billID, price, discount, totalPrice); 
 }
