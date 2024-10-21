@@ -90,7 +90,7 @@ public class DataProvider
     {
         return Execute(command =>
         {
-            DataTable dataTable = new DataTable();
+            DataTable dataTable = new();
             using (DbDataAdapter dataAdapter = new SqlDataAdapter())
             {
                 dataAdapter.SelectCommand = command;
@@ -104,7 +104,7 @@ public class DataProvider
     {
         return Execute(command =>
         {
-            DataTable dataTable = new DataTable();
+            DataTable dataTable = new();
             using (DbDataAdapter dataAdapter = new SqlDataAdapter())
             {
                 dataAdapter.SelectCommand = command;
@@ -138,7 +138,7 @@ public class DataProvider
         }
         for (int i = 0; i < dr.Table.Columns.Count; ++i)
         {
-            if (!(dr[i] is DBNull))
+            if (dr[i] is not DBNull)
             {
                 object obj = dr[i];
                 PropertyInfo property = type.GetProperty(dr.Table.Columns[i].ColumnName);

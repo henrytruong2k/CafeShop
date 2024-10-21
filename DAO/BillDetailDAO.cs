@@ -4,7 +4,6 @@ public class BillDetailDAO
 {
     private static BillDetailDAO _instance;
     public static BillDetailDAO Instance => _instance ??= new BillDetailDAO();
-
     private BillDetailDAO() { }
 
     public void InsertBillDetail(int billID, int menuID, long price, int quantity)
