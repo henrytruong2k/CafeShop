@@ -3,15 +3,7 @@
 public class BillDetailDAO
 {
     private static BillDetailDAO _instance;
-    public static BillDetailDAO Instance
-    {
-        get
-        {
-            _instance ??= new BillDetailDAO();
-            return _instance;
-        }
-        private set { _instance = value; }
-    }
+    public static BillDetailDAO Instance => _instance ??= new BillDetailDAO();
 
     private BillDetailDAO() { }
 

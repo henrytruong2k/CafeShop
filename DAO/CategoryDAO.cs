@@ -5,18 +5,13 @@ namespace CafeShop.DAO;
 
 public class CategoryDAO
 {
-    private static readonly JsonSerializerOptions _options = new() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull };
-    private static CategoryDAO _instance;
-    public static CategoryDAO Instance
+    private static readonly JsonSerializerOptions _options = new()
     {
-        get
-        {
-            _instance ??= new CategoryDAO();
-            return _instance;
-        }
-        private set { _instance = value; }
-    }
-
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+    };
+    private static CategoryDAO _instance;
+    public static CategoryDAO Instance => _instance ??= new CategoryDAO();
+    private CategoryDAO() { }
     public List<CategoryDTO> GetCategories() => DataProvider.Instance.ExecuteProcedureGetList<CategoryDTO>("SP_GetCategories");
 
     public List<CategoryDTO> GetCategory(string cateName)
@@ -57,7 +52,6 @@ public class CategoryDAO
         }
         catch
         {
-
             return false;
         }
     }
@@ -77,6 +71,4 @@ public class CategoryDAO
             return false;
         }
     }
-
-
 }

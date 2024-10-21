@@ -3,18 +3,10 @@
 public class MenuBUS
 {
     private static MenuBUS _instance;
-    public static MenuBUS Instance
-    {
-        get
-        {
-            _instance ??= new MenuBUS();
-            return _instance;
-        }
-        private set { _instance = value; }
-    }
+    public static MenuBUS Instance => _instance ??= new MenuBUS();
 
     private MenuBUS() { }
-    
+
     public List<MenuDTO> GetMenus(string menuName = null) => MenuDAO.Instance.GetMenus(menuName);
 
     public List<MenuDTO> GetMenusByCategoryID(int categoryID) => MenuDAO.Instance.GetMenuByCategoryID(categoryID);

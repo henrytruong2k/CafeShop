@@ -123,7 +123,7 @@ public class DataProvider
         }
         return ts;
     }
-    
+
     public T Extract<T>(DataRow dr) where T : class
     {
         Type type = typeof(T);
@@ -151,7 +151,7 @@ public class DataProvider
                         {
                             if (targetType.IsEnum)
                             {
-                                obj = System.Enum.Parse(targetType, obj.ToString());
+                                obj = Enum.Parse(targetType, obj.ToString());
                             }
                             else
                             {

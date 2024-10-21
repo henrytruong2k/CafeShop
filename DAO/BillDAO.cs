@@ -1,12 +1,15 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Data;
 using System.Text.Json;
-using System.Data;
+using System.Text.Json.Serialization;
 
 namespace CafeShop.DAO;
 
 public class BillDAO
 {
-    private static readonly JsonSerializerOptions _options = new() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull };
+    private static readonly JsonSerializerOptions _options = new()
+    {
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+    };
     private static BillDAO _instance;
     public static BillDAO Instance => _instance ??= new BillDAO();
 

@@ -3,15 +3,7 @@
 public class CategoryBUS
 {
     private static CategoryBUS _instance;
-    public static CategoryBUS Instance
-    {
-        get
-        {
-            _instance ??= new CategoryBUS();
-            return _instance;
-        }
-        private set { _instance = value; }
-    }
+    public static CategoryBUS Instance => _instance ??= new CategoryBUS();
 
     public List<CategoryDTO> GetCategories() => CategoryDAO.Instance.GetCategories();
 

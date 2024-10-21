@@ -105,7 +105,7 @@
             btn_Show.Name = "btn_Show";
             btn_Show.Size = new Size(80, 29);
             btn_Show.TabIndex = 5;
-            btn_Show.Text = "show";
+            btn_Show.Text = "Show";
             btn_Show.UseVisualStyleBackColor = true;
             btn_Show.Click += btn_Show_Click;
             // 

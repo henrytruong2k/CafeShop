@@ -5,18 +5,13 @@ namespace CafeShop.DAO;
 
 public class MenuDAO
 {
-    private static readonly JsonSerializerOptions _options = new() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull };
-    private static MenuDAO _instance;
-    public static MenuDAO Instance
+    private static readonly JsonSerializerOptions _options = new()
     {
-        get
-        {
-            _instance ??= new MenuDAO();
-            return _instance;
-        }
-        private set { _instance = value; }
-    }
-
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+    };
+    private static MenuDAO _instance;
+    public static MenuDAO Instance => _instance ??= new MenuDAO();
+    private MenuDAO() { }
     public List<MenuDTO> GetMenus(string menuName)
     {
         DataProvider.Instance.AddInputParameter("MenuName", menuName);

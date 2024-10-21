@@ -3,15 +3,7 @@
 public class BillBUS
 {
     private static BillBUS _instance;
-    public static BillBUS Instance
-    {
-        get
-        {
-            _instance ??= new BillBUS();
-            return _instance;
-        }
-        private set { _instance = value; }
-    }
+    public static BillBUS Instance => _instance ??= new BillBUS();
 
     private BillBUS() { }
 

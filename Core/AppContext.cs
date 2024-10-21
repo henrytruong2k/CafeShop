@@ -1,7 +1,4 @@
-﻿using System.Text.Json.Serialization;
-using System.Text.Json;
-
-namespace CafeShop.Core;
+﻿namespace CafeShop.Core;
 
 public static class AppContext
 {
