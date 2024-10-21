@@ -28,5 +28,11 @@ namespace CafeShop.GUI
             FormMenu formMenu = new();
             formMenu.ShowDialog();
         }
+
+        private void txt_Statistics_Click(object sender, EventArgs e)
+        {
+            FormStatistic formStatistic = new();
+            formStatistic.ShowDialog();
+        }
     }
 }

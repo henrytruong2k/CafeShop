@@ -31,14 +31,28 @@ public class DataProvider
     private static readonly IList<DbParameter> Parameters = [];
     public void AddInputParameter(string name, object value)
     {
-        DbParameter dbParameter = new SqlParameter()
-        {
-            ParameterName = name,
-            Direction = ParameterDirection.Input,
-            Value = value ?? DBNull.Value
-        };
+        DbParameter dbParameter = CreateDbParameter(name, ParameterDirection.Input);
+        dbParameter.Value = value ?? DBNull.Value;
         Parameters.Add(dbParameter);
     }
+    public void AddOutputParameter(string name, DbType dbType)
+    {
+        DbParameter dbParameter = CreateDbParameter(name, ParameterDirection.Output);
+        dbParameter.Size = int.MaxValue;
+        dbParameter.DbType = dbType;
+        Parameters.Add(dbParameter);
+    }
+
+    public T GetParameterValue<T>(string name)
+    {
+        DbParameter parameter = Parameters.FirstOrDefault(x => x.ParameterName == name);
+        object value = parameter?.Value;
+        Parameters.Remove(parameter);
+        return value is DBNull ? default : (T)value;
+    }
+
+    private DbParameter CreateDbParameter(string parameterName, ParameterDirection parameterDirection)
+            => new SqlParameter { ParameterName = parameterName, Direction = parameterDirection };
 
     private T Execute<T>(Func<DbCommand, T> func, CommandType commandType, string commandText)
     {

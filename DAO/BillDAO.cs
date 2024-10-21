@@ -1,5 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 using System.Text.Json;
+using System.Data;
 
 namespace CafeShop.DAO;
 
@@ -41,7 +42,6 @@ public class BillDAO
         DataProvider.Instance.AddInputParameter("Discount", discount);
         DataProvider.Instance.AddInputParameter("TotalPrice", totalPrice);
         DataProvider.Instance.AddInputParameter("UserID", Core.AppContext.UserID);
-        //TODO: fix typo parameters
         DataProvider.Instance.AddInputParameter("@Parameters", JsonSerializer.Serialize(new
         {
             BillID = billID,
@@ -50,5 +50,17 @@ public class BillDAO
             TotalPrice = totalPrice
         }, _options));
         DataProvider.Instance.ExecuteSPNonQuery("SP_CheckoutBill");
+    }
+
+    public (List<BillStatisticDTO>, int) GetListBillByDate(string fromDate, string toDate, int offset, int limit)
+    {
+        DataProvider.Instance.AddInputParameter("FromDate", fromDate);
+        DataProvider.Instance.AddInputParameter("ToDate", toDate);
+        DataProvider.Instance.AddInputParameter("Offset", offset);
+        DataProvider.Instance.AddInputParameter("Limit", limit);
+        DataProvider.Instance.AddOutputParameter("TotalRecords", DbType.Int32);
+        List<BillStatisticDTO> list = DataProvider.Instance.ExecuteProcedureGetList<BillStatisticDTO>("SP_GetListBillByDay");
+        int totalRecords = DataProvider.Instance.GetParameterValue<int>("TotalRecords");
+        return (list, totalRecords);
     }
 }
