@@ -118,7 +118,7 @@ public partial class FormBooking : Form
         ShowBill(tableID);
         LoadSwitchableTables(tableID);
         LoadMergeableTables(tableID);
-        btn_switchTable.Enabled = true;
+        btn_switchTable.Enabled = (lvMenuItem.Tag as TableDTO).BookingStatus;
         btn_MergeTable.Enabled = true;
         previousClickBtn = button;
     }
