@@ -1,5 +1,4 @@
-﻿using CafeShop.DTO;
-using CafeShop.Utils;
+﻿using CafeShop.Utils;
 
 namespace CafeShop.GUI;
 
@@ -91,6 +90,7 @@ public partial class FormMenu : Form
     {
         MenuDTO menuDTO = new()
         {
+            MenuID = Convert.ToInt32(txt_FoodID.Text),
             MenuName = txt_FoodName.Text,
             Description = txt_Description.Text,
             Price = Convert.ToInt64(txt_Price.Text.RemoveCommas()),

@@ -1,0 +1,58 @@
+create trigger TRG_UpdateBillDetail
+on BillDetails for insert
+as
+begin
+	declare @billID int
+	select @billID = BillID from inserted
+
+	declare @tableID int
+	select @tableID = TableID from Bills where BillID = @billID and DateCheckout is null
+
+	declare @count int
+	select @count = COUNT(*) from BillDetails where BillID = @billID
+
+	if (@count > 0)
+		update TableFood set BookingStatus = 1 where TableID = @tableID
+	else
+		update TableFood set BookingStatus = 0 where TableID = @tableID
+end
+go
+
+CREATE TRIGGER TRG_UpdateBill
+on Bills for update
+as
+begin
+	declare @billID int
+	select @billID = BillID from inserted
+	declare @tableID int
+	select @tableID = TableID from Bills where BillID = @billID
+	declare @amount int = 0
+	select @amount = COUNT(*) from Bills where TableID = @tableID and DateCheckout is null
+	if (@amount = 0)
+		update TableFood set BookingStatus = 0 where TableID = @tableID
+end
+GO
+
+create trigger TRG_DeleteBillDetail
+on BillDetails for delete
+as
+begin
+	declare @billDetailID int
+	declare @billID int
+	select @billDetailID = BillDetailID, @billID = BillID from deleted
+
+	declare @TableID int
+	select @TableID = TableID from Bills where BillID = @BillID
+
+	declare @count int = 0
+	select @count = COUNT(*) 
+	from BillDetails bd
+	join Bills b on b.BillID = bd.BillID
+	where b.BillID = @BillID and b.DateCheckout IS NULL
+
+	if (@count = 0)
+		update TableFood 
+		set BookingStatus = 0
+		where TableID = @TableID
+end
+go

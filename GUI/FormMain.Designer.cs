@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             btn_booking = new Button();
-            button2 = new Button();
+            txt_Statistics = new Button();
             btn_menu = new Button();
             btn_manage = new Button();
             SuspendLayout();
@@ -44,14 +44,15 @@
             btn_booking.UseVisualStyleBackColor = true;
             btn_booking.Click += btn_booking_Click;
             // 
-            // button2
+            // txt_Statistics
             // 
-            button2.Location = new Point(66, 225);
-            button2.Name = "button2";
-            button2.Size = new Size(129, 52);
-            button2.TabIndex = 1;
-            button2.Text = "Thống kê";
-            button2.UseVisualStyleBackColor = true;
+            txt_Statistics.Location = new Point(66, 225);
+            txt_Statistics.Name = "txt_Statistics";
+            txt_Statistics.Size = new Size(129, 52);
+            txt_Statistics.TabIndex = 1;
+            txt_Statistics.Text = "Thống kê";
+            txt_Statistics.UseVisualStyleBackColor = true;
+            txt_Statistics.Click += txt_Statistics_Click;
             // 
             // btn_menu
             // 
@@ -79,7 +80,7 @@
             ClientSize = new Size(588, 353);
             Controls.Add(btn_manage);
             Controls.Add(btn_menu);
-            Controls.Add(button2);
+            Controls.Add(txt_Statistics);
             Controls.Add(btn_booking);
             Name = "FormMain";
             Text = "FormMain";
@@ -89,7 +90,7 @@
         #endregion
 
         private Button btn_booking;
-        private Button button2;
+        private Button txt_Statistics;
         private Button btn_menu;
         private Button btn_manage;
     }

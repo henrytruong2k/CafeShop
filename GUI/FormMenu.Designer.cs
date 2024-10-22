@@ -270,6 +270,7 @@
             // 
             dgv_FoodMenu.AllowUserToAddRows = false;
             dgv_FoodMenu.AllowUserToDeleteRows = false;
+            dgv_FoodMenu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_FoodMenu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_FoodMenu.Location = new Point(3, 0);
             dgv_FoodMenu.Margin = new Padding(3, 2, 3, 2);

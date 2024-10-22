@@ -31,14 +31,28 @@ public class DataProvider
     private static readonly IList<DbParameter> Parameters = [];
     public void AddInputParameter(string name, object value)
     {
-        DbParameter dbParameter = new SqlParameter()
-        {
-            ParameterName = name,
-            Direction = ParameterDirection.Input,
-            Value = value ?? DBNull.Value
-        };
+        DbParameter dbParameter = CreateDbParameter(name, ParameterDirection.Input);
+        dbParameter.Value = value ?? DBNull.Value;
         Parameters.Add(dbParameter);
     }
+    public void AddOutputParameter(string name, DbType dbType)
+    {
+        DbParameter dbParameter = CreateDbParameter(name, ParameterDirection.Output);
+        dbParameter.Size = int.MaxValue;
+        dbParameter.DbType = dbType;
+        Parameters.Add(dbParameter);
+    }
+
+    public T GetParameterValue<T>(string name)
+    {
+        DbParameter parameter = Parameters.FirstOrDefault(x => x.ParameterName == name);
+        object value = parameter?.Value;
+        Parameters.Remove(parameter);
+        return value is DBNull ? default : (T)value;
+    }
+
+    private DbParameter CreateDbParameter(string parameterName, ParameterDirection parameterDirection)
+            => new SqlParameter { ParameterName = parameterName, Direction = parameterDirection };
 
     private T Execute<T>(Func<DbCommand, T> func, CommandType commandType, string commandText)
     {
@@ -76,7 +90,7 @@ public class DataProvider
     {
         return Execute(command =>
         {
-            DataTable dataTable = new DataTable();
+            DataTable dataTable = new();
             using (DbDataAdapter dataAdapter = new SqlDataAdapter())
             {
                 dataAdapter.SelectCommand = command;
@@ -90,7 +104,7 @@ public class DataProvider
     {
         return Execute(command =>
         {
-            DataTable dataTable = new DataTable();
+            DataTable dataTable = new();
             using (DbDataAdapter dataAdapter = new SqlDataAdapter())
             {
                 dataAdapter.SelectCommand = command;
@@ -109,7 +123,7 @@ public class DataProvider
         }
         return ts;
     }
-    
+
     public T Extract<T>(DataRow dr) where T : class
     {
         Type type = typeof(T);
@@ -124,7 +138,7 @@ public class DataProvider
         }
         for (int i = 0; i < dr.Table.Columns.Count; ++i)
         {
-            if (!(dr[i] is DBNull))
+            if (dr[i] is not DBNull)
             {
                 object obj = dr[i];
                 PropertyInfo property = type.GetProperty(dr.Table.Columns[i].ColumnName);
@@ -137,7 +151,7 @@ public class DataProvider
                         {
                             if (targetType.IsEnum)
                             {
-                                obj = System.Enum.Parse(targetType, obj.ToString());
+                                obj = Enum.Parse(targetType, obj.ToString());
                             }
                             else
                             {
@@ -175,4 +189,19 @@ public class DataProvider
 
     public int ExecuteNonQuery(string queryString) => Execute(command => command.ExecuteNonQuery(), CommandType.Text, queryString);
     public int ExecuteSPNonQuery(string queryString) => Execute(command => command.ExecuteNonQuery(), CommandType.StoredProcedure, queryString);
+
+    public T ExecuteSQLScalar<T>(string sqlText) => Execute(command =>
+    {
+        object value = null;
+        try
+        {
+            value = command.ExecuteScalar();
+            return (T)Convert.ChangeType(value, typeof(T), CultureInfo.InvariantCulture);
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+    }, CommandType.Text, sqlText);
+
 }

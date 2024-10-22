@@ -5,23 +5,24 @@ namespace CafeShop.DAO;
 
 public class MenuDAO
 {
-    private static readonly JsonSerializerOptions _options = new() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull };
-    private static MenuDAO _instance;
-    public static MenuDAO Instance
+    private static readonly JsonSerializerOptions _options = new()
     {
-        get
-        {
-            _instance ??= new MenuDAO();
-            return _instance;
-        }
-        private set { _instance = value; }
-    }
-
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+    };
+    private static MenuDAO _instance;
+    public static MenuDAO Instance => _instance ??= new MenuDAO();
+    private MenuDAO() { }
     public List<MenuDTO> GetMenus(string menuName)
     {
         DataProvider.Instance.AddInputParameter("MenuName", menuName);
         List<MenuDTO> menus = DataProvider.Instance.ExecuteProcedureGetList<MenuDTO>("SP_MenuSearch");
         return menus;
+    }
+
+    public List<MenuDTO> GetMenuByCategoryID(int categoryID)
+    {
+        DataProvider.Instance.AddInputParameter("CategoryID", categoryID);
+        return DataProvider.Instance.ExecuteProcedureGetList<MenuDTO>("SP_GetMenuByCategoryID");
     }
 
     public List<CategoryDTO> GetCategories() => DataProvider.Instance.ExecuteSQLGetList<CategoryDTO>("SELECT * FROM Categories");
@@ -35,7 +36,7 @@ public class MenuDAO
             DataProvider.Instance.AddInputParameter("Price", menu.Price);
             DataProvider.Instance.AddInputParameter("CategoryID", menu.CategoryID);
             DataProvider.Instance.AddInputParameter("UserID", Core.AppContext.UserID);
-            DataProvider.Instance.AddInputParameter("Paramerters", JsonSerializer.Serialize(menu, _options));
+            DataProvider.Instance.AddInputParameter("Parameters", JsonSerializer.Serialize(menu, _options));
             DataProvider.Instance.ExecuteProcedure<EmptyData>("SP_InsertMenu");
             return true;
         }
@@ -55,7 +56,7 @@ public class MenuDAO
             DataProvider.Instance.AddInputParameter("Price", menu.Price);
             DataProvider.Instance.AddInputParameter("CategoryID", menu.CategoryID);
             DataProvider.Instance.AddInputParameter("UserID", Core.AppContext.UserID);
-            DataProvider.Instance.AddInputParameter("Paramerters", JsonSerializer.Serialize(menu, _options));
+            DataProvider.Instance.AddInputParameter("Parameters", JsonSerializer.Serialize(menu, _options));
             DataProvider.Instance.ExecuteProcedure<EmptyData>("SP_UpdateMenu");
             return true;
         }
@@ -71,7 +72,7 @@ public class MenuDAO
         {
             DataProvider.Instance.AddInputParameter("MenuID", menuID);
             DataProvider.Instance.AddInputParameter("UserID", Core.AppContext.UserID);
-            DataProvider.Instance.AddInputParameter("Paramerters", JsonSerializer.Serialize(new { MenuID = menuID }, _options));
+            DataProvider.Instance.AddInputParameter("Parameters", JsonSerializer.Serialize(new { MenuID = menuID }, _options));
             DataProvider.Instance.ExecuteProcedure<EmptyData>("SP_DeleteMenu");
             return true;
         }

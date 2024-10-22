@@ -1,24 +1,17 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CafeShop.DAO;
 
 public class CategoryDAO
 {
-    private static readonly JsonSerializerOptions _options = new() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull };
-    private static CategoryDAO _instance;
-    public static CategoryDAO Instance
+    private static readonly JsonSerializerOptions _options = new()
     {
-        get
-        {
-            _instance ??= new CategoryDAO();
-            return _instance;
-        }
-        private set { _instance = value; }
-    }
-
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+    };
+    private static CategoryDAO _instance;
+    public static CategoryDAO Instance => _instance ??= new CategoryDAO();
+    private CategoryDAO() { }
     public List<CategoryDTO> GetCategories() => DataProvider.Instance.ExecuteProcedureGetList<CategoryDTO>("SP_GetCategories");
 
     public List<CategoryDTO> GetCategory(string cateName)
@@ -35,7 +28,7 @@ public class CategoryDAO
             DataProvider.Instance.AddInputParameter("CategoryName", cate.CategoryName);
             DataProvider.Instance.AddInputParameter("Note", cate.Note);
             DataProvider.Instance.AddInputParameter("UserID", Core.AppContext.UserID);
-            DataProvider.Instance.AddInputParameter("Paramerters", JsonSerializer.Serialize(cate, _options));
+            DataProvider.Instance.AddInputParameter("Parameters", JsonSerializer.Serialize(cate, _options));
             DataProvider.Instance.ExecuteProcedure<EmptyData>("SP_AddCategory");
             return true;
         }
@@ -53,13 +46,12 @@ public class CategoryDAO
             DataProvider.Instance.AddInputParameter("CategoryName", cate.CategoryName);
             DataProvider.Instance.AddInputParameter("Note", cate.Note);
             DataProvider.Instance.AddInputParameter("UserID", Core.AppContext.UserID);
-            DataProvider.Instance.AddInputParameter("Paramerters", JsonSerializer.Serialize(cate, _options));
+            DataProvider.Instance.AddInputParameter("Parameters", JsonSerializer.Serialize(cate, _options));
             DataProvider.Instance.ExecuteProcedure<EmptyData>("SP_UpdateCategory");
             return true;
         }
         catch
         {
-
             return false;
         }
     }
@@ -70,7 +62,7 @@ public class CategoryDAO
         {
             DataProvider.Instance.AddInputParameter("CategoryID", categoryID);
             DataProvider.Instance.AddInputParameter("UserID", Core.AppContext.UserID);
-            DataProvider.Instance.AddInputParameter("Paramerters", JsonSerializer.Serialize(new { CategoryID = categoryID }, _options));
+            DataProvider.Instance.AddInputParameter("Parameters", JsonSerializer.Serialize(new { CategoryID = categoryID }, _options));
             DataProvider.Instance.ExecuteProcedure<EmptyData>("SP_DeleteCategory");
             return true;
         }
@@ -79,6 +71,4 @@ public class CategoryDAO
             return false;
         }
     }
-
-
 }

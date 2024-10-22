@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace CafeShop.GUI
+﻿namespace CafeShop.GUI
 {
     public partial class FormMain : Form
     {
@@ -27,6 +17,12 @@ namespace CafeShop.GUI
         {
             FormMenu formMenu = new();
             formMenu.ShowDialog();
+        }
+
+        private void txt_Statistics_Click(object sender, EventArgs e)
+        {
+            FormStatistic formStatistic = new();
+            formStatistic.ShowDialog();
         }
     }
 }
