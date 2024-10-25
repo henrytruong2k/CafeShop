@@ -24,5 +24,22 @@
             FormStatistic formStatistic = new();
             formStatistic.ShowDialog();
         }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_manage_Click(object sender, EventArgs e)
+        {
+            FormManage formManage = new();
+            formManage.ShowDialog();
+        }
+
+        private void btn_history_Click(object sender, EventArgs e)
+        {
+            FormHistoryLog formHistoryLog = new();   
+            formHistoryLog.ShowDialog();
+        }
     }
 }
