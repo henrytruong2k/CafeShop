@@ -28,62 +28,92 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnLogin = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             label1 = new Label();
-            lbl_username = new Label();
-            lbl_password = new Label();
             txt_username = new TextBox();
-            panel1 = new Panel();
-            btn_Show = new Button();
+            btnLogin = new Button();
+            lbl_password = new Label();
+            lbl_username = new Label();
             txt_password = new TextBox();
+            btn_Show = new Button();
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // btnLogin
-            // 
-            btnLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnLogin.Location = new Point(164, 113);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(98, 33);
-            btnLogin.TabIndex = 0;
-            btnLogin.Text = "Login";
-            btnLogin.UseVisualStyleBackColor = true;
-            btnLogin.Click += btnLogin_Click;
             // 
             // label1
             // 
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(100, 23);
+            label1.Size = new Size(114, 31);
             label1.TabIndex = 0;
             // 
-            // lbl_username
+            // txt_username
             // 
-            lbl_username.AutoSize = true;
-            lbl_username.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lbl_username.Location = new Point(19, 13);
-            lbl_username.Name = "lbl_username";
-            lbl_username.Size = new Size(84, 21);
-            lbl_username.TabIndex = 1;
-            lbl_username.Text = "Tài khoản";
+            txt_username.Font = new Font("Segoe UI", 12F);
+            txt_username.Location = new Point(129, 32);
+            txt_username.Margin = new Padding(3, 4, 3, 4);
+            txt_username.Name = "txt_username";
+            txt_username.Size = new Size(302, 34);
+            txt_username.TabIndex = 3;
+            // 
+            // btnLogin
+            // 
+            btnLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnLogin.Image = (Image)resources.GetObject("btnLogin.Image");
+            btnLogin.ImageAlign = ContentAlignment.MiddleRight;
+            btnLogin.Location = new Point(169, 198);
+            btnLogin.Margin = new Padding(3, 4, 3, 4);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(107, 43);
+            btnLogin.TabIndex = 0;
+            btnLogin.Text = "Login";
+            btnLogin.TextAlign = ContentAlignment.MiddleLeft;
+            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
             // 
             // lbl_password
             // 
             lbl_password.AutoSize = true;
             lbl_password.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lbl_password.Location = new Point(21, 60);
+            lbl_password.Location = new Point(4, 96);
             lbl_password.Name = "lbl_password";
-            lbl_password.Size = new Size(82, 21);
+            lbl_password.Size = new Size(102, 28);
             lbl_password.TabIndex = 2;
             lbl_password.Text = "Mật khẩu";
             // 
-            // txt_username
+            // lbl_username
             // 
-            txt_username.Font = new Font("Segoe UI", 12F);
-            txt_username.Location = new Point(164, 10);
-            txt_username.Name = "txt_username";
-            txt_username.Size = new Size(299, 29);
-            txt_username.TabIndex = 3;
+            lbl_username.AutoSize = true;
+            lbl_username.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lbl_username.Location = new Point(3, 35);
+            lbl_username.Name = "lbl_username";
+            lbl_username.Size = new Size(103, 28);
+            lbl_username.TabIndex = 1;
+            lbl_username.Text = "Tài khoản";
+            // 
+            // txt_password
+            // 
+            txt_password.Font = new Font("Segoe UI", 12F);
+            txt_password.Location = new Point(129, 93);
+            txt_password.Margin = new Padding(3, 4, 3, 4);
+            txt_password.Name = "txt_password";
+            txt_password.PasswordChar = '*';
+            txt_password.Size = new Size(222, 34);
+            txt_password.TabIndex = 4;
+            // 
+            // btn_Show
+            // 
+            btn_Show.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_Show.Location = new Point(348, 90);
+            btn_Show.Name = "btn_Show";
+            btn_Show.Size = new Size(83, 39);
+            btn_Show.TabIndex = 5;
+            btn_Show.Text = "Show";
+            btn_Show.TextAlign = ContentAlignment.MiddleRight;
+            btn_Show.UseVisualStyleBackColor = true;
+            btn_Show.Click += btn_Show_Click;
             // 
             // panel1
             // 
@@ -93,55 +123,50 @@
             panel1.Controls.Add(lbl_password);
             panel1.Controls.Add(btnLogin);
             panel1.Controls.Add(txt_username);
-            panel1.Location = new Point(12, 12);
+            panel1.Location = new Point(343, 13);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(512, 194);
+            panel1.Size = new Size(448, 254);
             panel1.TabIndex = 4;
             // 
-            // btn_Show
+            // pictureBox1
             // 
-            btn_Show.Location = new Point(383, 57);
-            btn_Show.Margin = new Padding(3, 2, 3, 2);
-            btn_Show.Name = "btn_Show";
-            btn_Show.Size = new Size(80, 29);
-            btn_Show.TabIndex = 5;
-            btn_Show.Text = "Show";
-            btn_Show.UseVisualStyleBackColor = true;
-            btn_Show.Click += btn_Show_Click;
-            // 
-            // txt_password
-            // 
-            txt_password.Font = new Font("Segoe UI", 12F);
-            txt_password.Location = new Point(164, 57);
-            txt_password.Name = "txt_password";
-            txt_password.PasswordChar = '*';
-            txt_password.Size = new Size(219, 29);
-            txt_password.TabIndex = 4;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(326, 255);
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
             // 
             // FormLogin
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(535, 216);
+            ClientSize = new Size(804, 280);
+            Controls.Add(pictureBox1);
             Controls.Add(panel1);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormLogin";
-            Text = "FormLogin";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Đăng nhập";
             Load += FormLogin_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button btnLogin;
         private Label label1;
-        private Label lbl_username;
-        private Label lbl_password;
         private TextBox txt_username;
-        private Panel panel1;
+        private Button btnLogin;
+        private Label lbl_password;
+        private Label lbl_username;
         private TextBox txt_password;
         private Button btn_Show;
+        private Panel panel1;
+        private PictureBox pictureBox1;
     }
 }

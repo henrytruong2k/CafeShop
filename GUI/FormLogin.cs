@@ -1,13 +1,19 @@
 ﻿using CafeShop.GUI;
 using AppContext = CafeShop.Core.AppContext;
 
+
 namespace CafeShop;
 
 public partial class FormLogin : Form
 {
+    private Image iconShow;
+    private Image iconHide;
     public FormLogin()
     {
         InitializeComponent();
+        iconShow = Image.FromFile("C:\\Users\\admin\\Desktop\\GreatDoAn\\CafeShop\\Icon\\show.png");
+        iconHide = Image.FromFile("C:\\Users\\admin\\Desktop\\GreatDoAn\\CafeShop\\Icon\\hide.png");
+        btn_Show.Image = iconShow;
     }
 
     private void btnLogin_Click(object sender, EventArgs e)
@@ -39,11 +45,18 @@ public partial class FormLogin : Form
         {
             txt_password.PasswordChar = '\0';
             btn_Show.Text = "Hide";
+            btn_Show.Image = iconHide;
         }
         else
         {
             txt_password.PasswordChar = '*';
             btn_Show.Text = "Show";
+            btn_Show.Image = iconShow;
         }
+    }
+
+    private void panel2_Paint(object sender, PaintEventArgs e)
+    {
+
     }
 }

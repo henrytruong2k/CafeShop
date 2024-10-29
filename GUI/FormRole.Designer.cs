@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRole));
             panel1 = new Panel();
             panel5 = new Panel();
             txt_RoleName = new TextBox();
@@ -37,7 +38,6 @@
             btn_reset = new Button();
             btn_XoaRole = new Button();
             btn_SuaRole = new Button();
-            btn_ThemRole = new Button();
             txt_RoleID = new TextBox();
             label4 = new Label();
             label3 = new Label();
@@ -47,6 +47,7 @@
             txt_TimRole = new TextBox();
             panel3 = new Panel();
             dgv_Role = new DataGridView();
+            btn_ThemRole = new Button();
             panel1.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
@@ -120,43 +121,42 @@
             // 
             // btn_reset
             // 
+            btn_reset.Image = (Image)resources.GetObject("btn_reset.Image");
+            btn_reset.ImageAlign = ContentAlignment.MiddleLeft;
             btn_reset.Location = new Point(277, 396);
             btn_reset.Name = "btn_reset";
-            btn_reset.Size = new Size(89, 37);
+            btn_reset.Size = new Size(102, 37);
             btn_reset.TabIndex = 8;
             btn_reset.Text = "Làm mới";
+            btn_reset.TextAlign = ContentAlignment.MiddleRight;
             btn_reset.UseVisualStyleBackColor = true;
             btn_reset.Click += btn_reset_Click;
             // 
             // btn_XoaRole
             // 
+            btn_XoaRole.Image = (Image)resources.GetObject("btn_XoaRole.Image");
+            btn_XoaRole.ImageAlign = ContentAlignment.MiddleLeft;
             btn_XoaRole.Location = new Point(198, 396);
             btn_XoaRole.Name = "btn_XoaRole";
             btn_XoaRole.Size = new Size(72, 37);
             btn_XoaRole.TabIndex = 2;
             btn_XoaRole.Text = "Xóa";
+            btn_XoaRole.TextAlign = ContentAlignment.MiddleRight;
             btn_XoaRole.UseVisualStyleBackColor = true;
             btn_XoaRole.Click += btn_XoaRole_Click;
             // 
             // btn_SuaRole
             // 
+            btn_SuaRole.Image = (Image)resources.GetObject("btn_SuaRole.Image");
+            btn_SuaRole.ImageAlign = ContentAlignment.MiddleLeft;
             btn_SuaRole.Location = new Point(113, 396);
             btn_SuaRole.Name = "btn_SuaRole";
             btn_SuaRole.Size = new Size(78, 37);
             btn_SuaRole.TabIndex = 1;
             btn_SuaRole.Text = "Sửa ";
+            btn_SuaRole.TextAlign = ContentAlignment.MiddleRight;
             btn_SuaRole.UseVisualStyleBackColor = true;
             btn_SuaRole.Click += btn_SuaRole_Click;
-            // 
-            // btn_ThemRole
-            // 
-            btn_ThemRole.Location = new Point(19, 396);
-            btn_ThemRole.Name = "btn_ThemRole";
-            btn_ThemRole.Size = new Size(87, 37);
-            btn_ThemRole.TabIndex = 0;
-            btn_ThemRole.Text = "Thêm";
-            btn_ThemRole.UseVisualStyleBackColor = true;
-            btn_ThemRole.Click += btn_ThemRole_Click;
             // 
             // txt_RoleID
             // 
@@ -205,11 +205,14 @@
             // 
             // btn_TimRole
             // 
-            btn_TimRole.Location = new Point(654, 16);
+            btn_TimRole.Image = (Image)resources.GetObject("btn_TimRole.Image");
+            btn_TimRole.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_TimRole.Location = new Point(654, 17);
             btn_TimRole.Name = "btn_TimRole";
-            btn_TimRole.Size = new Size(104, 39);
+            btn_TimRole.Size = new Size(84, 39);
             btn_TimRole.TabIndex = 0;
             btn_TimRole.Text = "Tìm";
+            btn_TimRole.TextAlign = ContentAlignment.MiddleRight;
             btn_TimRole.UseVisualStyleBackColor = true;
             btn_TimRole.Click += btn_TimRole_Click;
             // 
@@ -244,6 +247,19 @@
             dgv_Role.TabIndex = 0;
             dgv_Role.CellClick += dgv_Role_CellClick;
             // 
+            // btn_ThemRole
+            // 
+            btn_ThemRole.Image = (Image)resources.GetObject("btn_ThemRole.Image");
+            btn_ThemRole.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_ThemRole.Location = new Point(19, 396);
+            btn_ThemRole.Name = "btn_ThemRole";
+            btn_ThemRole.Size = new Size(87, 37);
+            btn_ThemRole.TabIndex = 0;
+            btn_ThemRole.Text = "Thêm";
+            btn_ThemRole.TextAlign = ContentAlignment.MiddleRight;
+            btn_ThemRole.UseVisualStyleBackColor = true;
+            btn_ThemRole.Click += btn_ThemRole_Click;
+            // 
             // FormRole
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -251,6 +267,7 @@
             ClientSize = new Size(1198, 703);
             Controls.Add(panel1);
             Name = "FormRole";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Vai Trò";
             Load += FormRole_Load;
             panel1.ResumeLayout(false);
@@ -272,7 +289,6 @@
         private Button btn_reset;
         private Button btn_XoaRole;
         private Button btn_SuaRole;
-        private Button btn_ThemRole;
         private TextBox txt_RoleID;
         private Label label4;
         private Label label3;
@@ -284,5 +300,6 @@
         private DataGridView dgv_Role;
         private Label label6;
         private TextBox txt_RoleName;
+        private Button btn_ThemRole;
     }
 }

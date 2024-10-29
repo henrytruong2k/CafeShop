@@ -4,19 +4,22 @@
     <Compile Update="GUI\FormBooking.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\FormCategory.cs">
+    <Compile Update="GUI\FormHistoryLog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\FormMain.cs">
+    <Compile Update="GUI\FormManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\FormMenu.cs">
+    <Compile Update="GUI\FormRole.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\FormStatistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

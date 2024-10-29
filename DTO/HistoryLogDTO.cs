@@ -1,6 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
-
-namespace CafeShop.DTO;
+﻿namespace CafeShop.DTO;
 
 public class HistoryLogDTO
 {
@@ -9,7 +7,7 @@ public class HistoryLogDTO
     public int ObjectID { get; set; }
     public string Parameters { get; set; }
 
-    public DateTime _logtime;
+    private DateTime _logtime;
     public string LogTime
     {
         get => _logtime.ToString("dd-MM-yyyy HH:mm:ss");
@@ -21,6 +19,4 @@ public class HistoryLogDTO
     }
     public string LogAction { get; set; }
     public int UserID { get; set; }
-
-
 }
