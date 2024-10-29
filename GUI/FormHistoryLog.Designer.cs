@@ -35,10 +35,10 @@
             contextMenuStrip1 = new ContextMenuStrip(components);
             contextMenuStrip2 = new ContextMenuStrip(components);
             flowLayoutPanel1 = new FlowLayoutPanel();
+            panel1 = new Panel();
             panel2 = new Panel();
             dgv_HistoryLog = new DataGridView();
             sqlCommand4 = new Microsoft.Data.SqlClient.SqlCommand();
-            panel1 = new Panel();
             flowLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_HistoryLog).BeginInit();
@@ -75,26 +75,38 @@
             // 
             flowLayoutPanel1.Controls.Add(panel1);
             flowLayoutPanel1.Controls.Add(panel2);
-            flowLayoutPanel1.Location = new Point(12, 12);
+            flowLayoutPanel1.Location = new Point(10, 9);
+            flowLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(958, 629);
+            flowLayoutPanel1.Size = new Size(838, 472);
             flowLayoutPanel1.TabIndex = 3;
+            // 
+            // panel1
+            // 
+            panel1.Location = new Point(3, 2);
+            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(833, 65);
+            panel1.TabIndex = 0;
             // 
             // panel2
             // 
             panel2.Controls.Add(dgv_HistoryLog);
-            panel2.Location = new Point(3, 96);
+            panel2.Location = new Point(3, 71);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(955, 533);
+            panel2.Size = new Size(836, 400);
             panel2.TabIndex = 1;
             // 
             // dgv_HistoryLog
             // 
+            dgv_HistoryLog.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_HistoryLog.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_HistoryLog.Location = new Point(3, 3);
+            dgv_HistoryLog.Location = new Point(3, 2);
+            dgv_HistoryLog.Margin = new Padding(3, 2, 3, 2);
             dgv_HistoryLog.Name = "dgv_HistoryLog";
             dgv_HistoryLog.RowHeadersWidth = 51;
-            dgv_HistoryLog.Size = new Size(949, 527);
+            dgv_HistoryLog.Size = new Size(830, 395);
             dgv_HistoryLog.TabIndex = 0;
             // 
             // sqlCommand4
@@ -102,19 +114,13 @@
             sqlCommand4.CommandTimeout = 30;
             sqlCommand4.EnableOptimizedParameterBinding = false;
             // 
-            // panel1
-            // 
-            panel1.Location = new Point(3, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(955, 87);
-            panel1.TabIndex = 0;
-            // 
             // FormHistoryLog
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(982, 653);
+            ClientSize = new Size(859, 490);
             Controls.Add(flowLayoutPanel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormHistoryLog";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Lịch sử đăng nhập";
