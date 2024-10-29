@@ -15,4 +15,6 @@ public class BillBUS
     public void Checkout(int billID, long price, int discount, long totalPrice) => BillDAO.Instance.Checkout(billID, price, discount, totalPrice);
 
     public (List<BillStatisticDTO>, int) GetListBillByDate(string fromDate, string toDate, int offset, int limit) => BillDAO.Instance.GetListBillByDate(fromDate, toDate, offset, limit);
+
+    public List<DailyRevenueDTO> GetDailyRevenues(int month) => BillDAO.Instance.GetDailyRevenues(month);
 }

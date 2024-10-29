@@ -32,13 +32,7 @@ public class BillStatisticDTO
         get => _totalPrice.ToVND();
         set => _totalPrice = ParseLong(value);
     }
-    private long ParseLong(string value)
-    {
-        return long.TryParse(value, out long parsedValue) ? parsedValue : 0;
-    }
+    private static long ParseLong(string value) => long.TryParse(value, out long parsedValue) ? parsedValue : 0;
 
-    private DateTime ParseDateTime(string value)
-    {
-        return DateTime.TryParse(value, out DateTime parsedDate) ? parsedDate : DateTime.MinValue;
-    }
+    private static DateTime ParseDateTime(string value) => DateTime.TryParse(value, out DateTime parsedDate) ? parsedDate : DateTime.MinValue;
 }

@@ -66,4 +66,10 @@ public class BillDAO
         int totalRecords = DataProvider.Instance.GetParameterValue<int>("TotalRecords");
         return (list, totalRecords);
     }
+
+    public List<DailyRevenueDTO> GetDailyRevenues(int month)
+    {
+        DataProvider.Instance.AddInputParameter("Month", month);
+        return DataProvider.Instance.ExecuteProcedureGetList<DailyRevenueDTO>("SP_CalculateDailyRevenue");
+    }
 }

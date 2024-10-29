@@ -1,4 +1,8 @@
-﻿namespace CafeShop.GUI;
+﻿using CafeShop.Utils;
+using System;
+using System.Windows.Forms.DataVisualization.Charting;
+
+namespace CafeShop.GUI;
 
 public partial class FormStatistic : Form
 {
@@ -54,5 +58,31 @@ public partial class FormStatistic : Form
     {
         txt_pageNumber.Text = (int.Parse(txt_pageNumber.Text) - 1).ToString();
         btn_Search_Click(sender, e);
+    }
+
+
+    private void tabControl1_Click(object sender, EventArgs e)
+    {
+        if (tabControl1.SelectedTab.Text == "Doanh thu")
+        {
+            int currentMonth = DateTime.Now.Month;
+            List<DailyRevenueDTO> dailyRevenues = BillBUS.Instance.GetDailyRevenues(currentMonth);
+            chartRevenue.Titles.Clear();
+            chartRevenue.Titles.Add($"Doanh thu tháng {currentMonth}");
+
+            chartRevenue.Series.Clear();
+            Series series = chartRevenue.Series.Add("Doanh thu");
+            series.ChartType = SeriesChartType.Column;
+            series.Color = Color.Blue;
+            for (int i = 0; i < dailyRevenues.Count; i++)
+            {
+                series.Points.AddXY(int.Parse(dailyRevenues[i].RevenueDate.ToString("dd")), dailyRevenues[i].DailyRevenue);
+                series.Points[i].Label = dailyRevenues[i].DailyRevenue.ToVND();
+                series.Points[i].AxisLabel = dailyRevenues[i].RevenueDate.ToString("dd");
+            }
+            chartRevenue.ChartAreas[0].AxisX.Title = "Ngày";
+            chartRevenue.ChartAreas[0].AxisY.Title = "Doanh thu (VND)";
+            chartRevenue.ChartAreas[0].AxisX.Interval = 1;
+        }
     }
 }

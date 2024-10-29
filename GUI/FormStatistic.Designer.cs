@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormStatistic));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panel1 = new Panel();
             label3 = new Label();
             panel2 = new Panel();
@@ -44,27 +46,37 @@
             btn_next = new Button();
             txt_pageNumber = new TextBox();
             lbl_totalPages = new Label();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            panel3 = new Panel();
+            tabPage2 = new TabPage();
+            chartRevenue = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Bill).BeginInit();
+            tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            panel3.SuspendLayout();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chartRevenue).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.Controls.Add(label3);
             panel1.Controls.Add(panel2);
-            panel1.Location = new Point(14, 16);
-            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Location = new Point(7, 6);
             panel1.Name = "panel1";
-            panel1.Size = new Size(887, 129);
+            panel1.Size = new Size(776, 97);
             panel1.TabIndex = 0;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(336, 16);
+            label3.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            label3.Location = new Point(293, 12);
             label3.Name = "label3";
-            label3.Size = new Size(129, 20);
+            label3.Size = new Size(200, 30);
             label3.TabIndex = 4;
             label3.Text = "Thống kê hóa đơn";
             // 
@@ -75,23 +87,18 @@
             panel2.Controls.Add(dtp_FromDate);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(3, 60);
-            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Location = new Point(3, 45);
             panel2.Name = "panel2";
-            panel2.Size = new Size(880, 41);
+            panel2.Size = new Size(770, 31);
             panel2.TabIndex = 3;
             // 
             // btn_Search
             // 
-            btn_Search.Image = (Image)resources.GetObject("btn_Search.Image");
-            btn_Search.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_Search.Location = new Point(419, 4);
-            btn_Search.Margin = new Padding(3, 4, 3, 4);
+            btn_Search.Location = new Point(348, 5);
             btn_Search.Name = "btn_Search";
-            btn_Search.Size = new Size(73, 31);
+            btn_Search.Size = new Size(75, 23);
             btn_Search.TabIndex = 5;
-            btn_Search.Text = "Tìm";
-            btn_Search.TextAlign = ContentAlignment.MiddleRight;
+            btn_Search.Text = "Tìm kiếm";
             btn_Search.UseVisualStyleBackColor = true;
             btn_Search.Click += btn_Search_Click;
             // 
@@ -99,37 +106,35 @@
             // 
             dtp_ToDate.CustomFormat = "dd/MM/yyyy";
             dtp_ToDate.Format = DateTimePickerFormat.Custom;
-            dtp_ToDate.Location = new Point(281, 7);
-            dtp_ToDate.Margin = new Padding(3, 4, 3, 4);
+            dtp_ToDate.Location = new Point(246, 5);
             dtp_ToDate.Name = "dtp_ToDate";
-            dtp_ToDate.Size = new Size(109, 27);
+            dtp_ToDate.Size = new Size(96, 23);
             dtp_ToDate.TabIndex = 4;
             // 
             // dtp_FromDate
             // 
             dtp_FromDate.CustomFormat = "dd/MM/yyyy";
             dtp_FromDate.Format = DateTimePickerFormat.Custom;
-            dtp_FromDate.Location = new Point(74, 7);
-            dtp_FromDate.Margin = new Padding(3, 4, 3, 4);
+            dtp_FromDate.Location = new Point(65, 5);
             dtp_FromDate.Name = "dtp_FromDate";
-            dtp_FromDate.Size = new Size(109, 27);
+            dtp_FromDate.Size = new Size(96, 23);
             dtp_FromDate.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(200, 12);
+            label2.Location = new Point(175, 9);
             label2.Name = "label2";
-            label2.Size = new Size(75, 20);
+            label2.Size = new Size(60, 15);
             label2.TabIndex = 2;
             label2.Text = "Đến ngày:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(3, 12);
+            label1.Location = new Point(3, 9);
             label1.Name = "label1";
-            label1.Size = new Size(65, 20);
+            label1.Size = new Size(52, 15);
             label1.TabIndex = 0;
             label1.Text = "Từ ngày:";
             // 
@@ -137,39 +142,36 @@
             // 
             dgv_Bill.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_Bill.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Bill.Location = new Point(14, 165);
-            dgv_Bill.Margin = new Padding(3, 4, 3, 4);
+            dgv_Bill.Location = new Point(7, 107);
             dgv_Bill.Name = "dgv_Bill";
             dgv_Bill.RowHeadersWidth = 51;
-            dgv_Bill.Size = new Size(887, 463);
+            dgv_Bill.Size = new Size(773, 314);
             dgv_Bill.TabIndex = 1;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(15, 645);
+            label4.Location = new Point(6, 21);
             label4.Name = "label4";
-            label4.Size = new Size(121, 20);
+            label4.Size = new Size(97, 15);
             label4.TabIndex = 2;
             label4.Text = "Số dòng hiển thị:";
             // 
             // cbo_selectedLines
             // 
             cbo_selectedLines.FormattingEnabled = true;
-            cbo_selectedLines.Location = new Point(133, 641);
-            cbo_selectedLines.Margin = new Padding(3, 4, 3, 4);
+            cbo_selectedLines.Location = new Point(115, 18);
             cbo_selectedLines.Name = "cbo_selectedLines";
-            cbo_selectedLines.Size = new Size(75, 28);
+            cbo_selectedLines.Size = new Size(66, 23);
             cbo_selectedLines.TabIndex = 3;
             cbo_selectedLines.SelectedIndexChanged += cbo_selectedLines_SelectedIndexChanged;
             // 
             // btn_previous
             // 
             btn_previous.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btn_previous.Location = new Point(623, 641);
-            btn_previous.Margin = new Padding(3, 4, 3, 4);
+            btn_previous.Location = new Point(471, 17);
             btn_previous.Name = "btn_previous";
-            btn_previous.Size = new Size(35, 31);
+            btn_previous.Size = new Size(31, 23);
             btn_previous.TabIndex = 4;
             btn_previous.Text = "<<";
             btn_previous.UseVisualStyleBackColor = true;
@@ -178,10 +180,9 @@
             // btn_next
             // 
             btn_next.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btn_next.Location = new Point(698, 641);
-            btn_next.Margin = new Padding(3, 4, 3, 4);
+            btn_next.Location = new Point(537, 17);
             btn_next.Name = "btn_next";
-            btn_next.Size = new Size(35, 31);
+            btn_next.Size = new Size(31, 23);
             btn_next.TabIndex = 5;
             btn_next.Text = ">>";
             btn_next.UseVisualStyleBackColor = true;
@@ -189,36 +190,91 @@
             // 
             // txt_pageNumber
             // 
-            txt_pageNumber.Location = new Point(665, 641);
-            txt_pageNumber.Margin = new Padding(3, 4, 3, 4);
+            txt_pageNumber.Location = new Point(508, 18);
             txt_pageNumber.Name = "txt_pageNumber";
-            txt_pageNumber.Size = new Size(26, 27);
+            txt_pageNumber.Size = new Size(23, 23);
             txt_pageNumber.TabIndex = 6;
             txt_pageNumber.Text = "1";
             // 
             // lbl_totalPages
             // 
             lbl_totalPages.AutoSize = true;
-            lbl_totalPages.Location = new Point(741, 647);
+            lbl_totalPages.Location = new Point(579, 21);
             lbl_totalPages.Name = "lbl_totalPages";
-            lbl_totalPages.Size = new Size(85, 20);
+            lbl_totalPages.Size = new Size(68, 15);
             lbl_totalPages.TabIndex = 7;
             lbl_totalPages.Text = "Tổng trang:";
             // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Location = new Point(2, 2);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(797, 513);
+            tabControl1.TabIndex = 8;
+            tabControl1.Click += tabControl1_Click;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(panel3);
+            tabPage1.Controls.Add(panel1);
+            tabPage1.Controls.Add(dgv_Bill);
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(789, 485);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Hóa đơn";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(label4);
+            panel3.Controls.Add(cbo_selectedLines);
+            panel3.Controls.Add(lbl_totalPages);
+            panel3.Controls.Add(btn_next);
+            panel3.Controls.Add(btn_previous);
+            panel3.Controls.Add(txt_pageNumber);
+            panel3.Location = new Point(7, 427);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(773, 52);
+            panel3.TabIndex = 8;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(chartRevenue);
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(789, 485);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Doanh thu";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // chartRevenue
+            // 
+            chartArea1.Name = "ChartArea1";
+            chartRevenue.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            chartRevenue.Legends.Add(legend1);
+            chartRevenue.Location = new Point(16, 6);
+            chartRevenue.Name = "chartRevenue";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chartRevenue.Series.Add(series1);
+            chartRevenue.Size = new Size(766, 473);
+            chartRevenue.TabIndex = 0;
+            chartRevenue.Text = "chart1";
+            // 
             // FormStatistic
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 689);
-            Controls.Add(lbl_totalPages);
-            Controls.Add(txt_pageNumber);
-            Controls.Add(btn_next);
-            Controls.Add(btn_previous);
-            Controls.Add(cbo_selectedLines);
-            Controls.Add(label4);
-            Controls.Add(dgv_Bill);
-            Controls.Add(panel1);
-            Margin = new Padding(3, 4, 3, 4);
+            ClientSize = new Size(800, 517);
+            Controls.Add(tabControl1);
             Name = "FormStatistic";
             Text = "FormStatistic";
             Load += FormStatistic_Load;
@@ -227,8 +283,13 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Bill).EndInit();
+            tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)chartRevenue).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -240,7 +301,6 @@
         private Panel panel2;
         private DateTimePicker dtp_ToDate;
         private Label label3;
-        private Button btn_Search;
         private DataGridView dgv_Bill;
         private Label label4;
         private ComboBox cbo_selectedLines;
@@ -248,5 +308,11 @@
         private Button btn_next;
         private TextBox txt_pageNumber;
         private Label lbl_totalPages;
+        private Button btn_Search;
+        private TabControl tabControl1;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
+        private Panel panel3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartRevenue;
     }
 }
