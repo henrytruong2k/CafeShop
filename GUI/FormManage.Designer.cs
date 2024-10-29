@@ -197,6 +197,7 @@
             btn_resetMenu.Text = "Làm mới";
             btn_resetMenu.TextAlign = ContentAlignment.MiddleRight;
             btn_resetMenu.UseVisualStyleBackColor = true;
+            btn_resetMenu.Click += btn_resetMenu_Click;
             // 
             // btn_XoaMenu
             // 
@@ -209,6 +210,7 @@
             btn_XoaMenu.Text = "Xóa";
             btn_XoaMenu.TextAlign = ContentAlignment.MiddleRight;
             btn_XoaMenu.UseVisualStyleBackColor = true;
+            btn_XoaMenu.Click += btn_XoaMenu_Click;
             // 
             // txt_Price
             // 
@@ -228,6 +230,7 @@
             btn_SuaMenu.Text = "Sửa ";
             btn_SuaMenu.TextAlign = ContentAlignment.MiddleRight;
             btn_SuaMenu.UseVisualStyleBackColor = true;
+            btn_SuaMenu.Click += btn_SuaMenu_Click;
             // 
             // cb_Category
             // 
@@ -427,6 +430,7 @@
             btn_resetCategory.Text = "Làm mới";
             btn_resetCategory.TextAlign = ContentAlignment.MiddleRight;
             btn_resetCategory.UseVisualStyleBackColor = true;
+            btn_resetCategory.Click += btn_resetCategory_Click;
             // 
             // btn_XoaCategory
             // 
@@ -439,6 +443,7 @@
             btn_XoaCategory.Text = "Xóa";
             btn_XoaCategory.TextAlign = ContentAlignment.MiddleRight;
             btn_XoaCategory.UseVisualStyleBackColor = true;
+            btn_XoaCategory.Click += btn_XoaCategory_Click;
             // 
             // btn_SuaCategory
             // 
@@ -451,6 +456,7 @@
             btn_SuaCategory.Text = "Sửa ";
             btn_SuaCategory.TextAlign = ContentAlignment.MiddleRight;
             btn_SuaCategory.UseVisualStyleBackColor = true;
+            btn_SuaCategory.Click += btn_SuaCategory_Click;
             // 
             // btn_ThemCategory
             // 
@@ -463,6 +469,7 @@
             btn_ThemCategory.Text = "Thêm";
             btn_ThemCategory.TextAlign = ContentAlignment.MiddleRight;
             btn_ThemCategory.UseVisualStyleBackColor = true;
+            btn_ThemCategory.Click += btn_ThemCategory_Click;
             // 
             // txt_CategoryName
             // 
@@ -614,6 +621,7 @@
             // 
             txt_Booking.Location = new Point(182, 157);
             txt_Booking.Name = "txt_Booking";
+            txt_Booking.ReadOnly = true;
             txt_Booking.Size = new Size(183, 27);
             txt_Booking.TabIndex = 10;
             // 

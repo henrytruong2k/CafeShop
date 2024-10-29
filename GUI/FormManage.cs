@@ -111,6 +111,7 @@ public partial class FormManage : Form
         txt_TableID.Text = string.Empty;
         txt_TableName.Text = string.Empty;
         txt_Booking.Text = string.Empty;
+
     }
 
     private void dgv_FoodMenu_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -181,7 +182,7 @@ public partial class FormManage : Form
         LoadData();
     }
 
-    private void btn_resetCategoryClick(object sender, EventArgs e)
+    private void btn_resetCategory_Click(object sender, EventArgs e)
     {
         ResetForm();
     }
@@ -286,6 +287,7 @@ public partial class FormManage : Form
         txt_Booking.Text = Convert.ToBoolean(row.Cells[nameof(TableDTO.BookingStatus)].Value.ToString()) ? "Có người" : "Trống";
     }
     #endregion
+
 
 
 }
