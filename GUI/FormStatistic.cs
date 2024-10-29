@@ -63,7 +63,8 @@ public partial class FormStatistic : Form
 
     private void tabControl1_Click(object sender, EventArgs e)
     {
-        if (tabControl1.SelectedTab.Text == "Doanh thu")
+        string tabName = tabControl1.SelectedTab.Text;
+        if (tabName == "Doanh thu")
         {
             int currentMonth = DateTime.Now.Month;
             List<DailyRevenueDTO> dailyRevenues = BillBUS.Instance.GetDailyRevenues(currentMonth);
@@ -83,6 +84,23 @@ public partial class FormStatistic : Form
             chartRevenue.ChartAreas[0].AxisX.Title = "Ngày";
             chartRevenue.ChartAreas[0].AxisY.Title = "Doanh thu (VND)";
             chartRevenue.ChartAreas[0].AxisX.Interval = 1;
+        }
+        if (tabName == "Menu")
+        {
+            List<BestMenuDTO> topSellingItems = MenuBUS.Instance.Top5BestSelling();
+            Series pieSeries = new()
+            {
+                Name = "Top Selling Items",
+                Color = Color.Green,
+                IsValueShownAsLabel = true,
+                ChartType = SeriesChartType.Pie
+            };
+
+            foreach (BestMenuDTO item in topSellingItems)
+            {
+                pieSeries.Points.AddXY(item.MenuName, item.TotalQuantity);
+            }
+            chartTopMenuItem.Series.Add(pieSeries);
         }
     }
 }

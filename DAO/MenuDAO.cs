@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CafeShop.DAO;
 
@@ -81,4 +82,6 @@ public class MenuDAO
             return false;
         }
     }
+
+    public List<BestMenuDTO> Top5BestSelling() => DataProvider.Instance.ExecuteProcedureGetList<BestMenuDTO>("SP_GetTop5BestSellingMenuItems");
 }

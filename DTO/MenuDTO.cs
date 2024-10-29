@@ -9,3 +9,9 @@ public class MenuDTO
     public int CategoryID { get; set; }
     public string CategoryName { get; set; }
 }
+
+public class BestMenuDTO
+{
+    public string MenuName { get; set; }
+    public string TotalQuantity { get; set; }
+}

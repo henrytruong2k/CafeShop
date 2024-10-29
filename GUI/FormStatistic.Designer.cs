@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             panel1 = new Panel();
             label3 = new Label();
             panel2 = new Panel();
@@ -51,6 +55,8 @@
             panel3 = new Panel();
             tabPage2 = new TabPage();
             chartRevenue = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            tabPage3 = new TabPage();
+            chartTopMenuItem = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Bill).BeginInit();
@@ -59,6 +65,8 @@
             panel3.SuspendLayout();
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chartRevenue).BeginInit();
+            tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chartTopMenuItem).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -209,6 +217,7 @@
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage3);
             tabControl1.Location = new Point(2, 2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -255,19 +264,50 @@
             // 
             // chartRevenue
             // 
-            chartArea1.Name = "ChartArea1";
-            chartRevenue.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            chartRevenue.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            chartRevenue.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            chartRevenue.Legends.Add(legend3);
             chartRevenue.Location = new Point(16, 6);
             chartRevenue.Name = "chartRevenue";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chartRevenue.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            chartRevenue.Series.Add(series3);
             chartRevenue.Size = new Size(766, 473);
             chartRevenue.TabIndex = 0;
             chartRevenue.Text = "chart1";
+            // 
+            // tabPage3
+            // 
+            tabPage3.Controls.Add(chartTopMenuItem);
+            tabPage3.Location = new Point(4, 24);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(789, 485);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Menu";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // chartTopMenuItem
+            // 
+            chartArea4.Name = "ChartArea1";
+            chartTopMenuItem.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            chartTopMenuItem.Legends.Add(legend4);
+            chartTopMenuItem.Location = new Point(99, 46);
+            chartTopMenuItem.Name = "chartTopMenuItem";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            chartTopMenuItem.Series.Add(series4);
+            chartTopMenuItem.Size = new Size(524, 298);
+            chartTopMenuItem.TabIndex = 0;
+            chartTopMenuItem.Text = "chart1";
+            title2.Name = "Title1";
+            title2.Text = "Thống kê top 5 món bán chạy nhất";
+            chartTopMenuItem.Titles.Add(title2);
             // 
             // FormStatistic
             // 
@@ -289,6 +329,8 @@
             panel3.PerformLayout();
             tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)chartRevenue).EndInit();
+            tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)chartTopMenuItem).EndInit();
             ResumeLayout(false);
         }
 
@@ -314,5 +356,7 @@
         private TabPage tabPage2;
         private Panel panel3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartRevenue;
+        private TabPage tabPage3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartTopMenuItem;
     }
 }
